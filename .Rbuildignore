@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^build_package\.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^/Users/Harrison/Desktop/packages/TidyConsultant/_pkgdown\.yml$
