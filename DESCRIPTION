@@ -9,3 +9,6 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.1
+URL: https://github.com/Harrison4192/TidyConsultant
+BugReports: https://github.com/Harrison4192/TidyConsultant/issues
