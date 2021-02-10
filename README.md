@@ -8,13 +8,13 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-project.org/package=TidyConsultant)
+status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-project.org/package=TidyConsultan)
+[![R-CMD-check](https://github.com/Harrison4192/TidyConsultant/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/TidyConsultant/actions)
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/TidyConsultant?color=blue)](https://cran.r-project.org/package=TidyConsultant)
 [![](https://img.shields.io/github/languages/code-size/Harrison4192/TidyConsultant.svg)](https://github.com/Harrison4192/TidyConsultant)
 [![](https://img.shields.io/github/last-commit/Harrison4192/TidyConsultant.svg)](https://github.com/Harrison4192/TidyConsultant/commits/master)
 
-[![R-CMD-check](https://github.com/Harrison4192/TidyConsultant/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/TidyConsultant/actions)
 <!-- badges: end -->
 
 Meta package for the Tidy Consultant Universe
