@@ -37,12 +37,12 @@ devtools::install_github("Harrison4192/TidyConsultant")
 
 Explore packages in the TidyConsulting universe:
 
-\-[valiData](https://github.com/Harrison4192/valiData)
+\-[valiData](https://harrison4192.github.io/valiData)
 
-\-[frameCleaneR](https://github.com/Harrison4192/frameCleaneR)
+\-[frameCleaneR](https://harrison4192.github.io/frameCleaneR/)
 
-\-[tidyBins](https://github.com/Harrison4192/tidyBins)
+\-[tidyBins](https://harrison4192.github.io/tidyBins)
 
-\-[presenteR](https://github.com/Harrison4192/presenteR)
+\-[presenteR](https://harrison4192.github.io/presenteR)
 
-\-[autoStats](https://github.com/Harrison4192/autoStats)
+\-[autoStats](https://harrison4192.github.io/autoStats)
