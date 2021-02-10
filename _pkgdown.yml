@@ -1,4 +1,12 @@
-reference: []
+template:
+  params:
+    bootswatch: cerulean
+    ganalytics: G-VPS4SG2YRY
+
+
+development:
+  mode: auto
+
 articles:
 - title: All vignettes
   desc: null
@@ -12,7 +20,8 @@ navbar:
     - articles
     - tutorials
     - news
-    right: github
+    right:
+    - github
   components:
     home:
       icon: fas fa-home fa-lg
@@ -20,4 +29,3 @@ navbar:
     reference:
       text: Reference
       href: reference/index.html
-

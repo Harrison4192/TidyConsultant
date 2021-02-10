@@ -26,11 +26,19 @@ usethis::use_pkgdown()
 ymlthis::pkgdown_template() %>%
   ymlthis::use_pkgdown_yml()
 
-# usethis: add packages ---------------------------------------------------
 
+# favicon -----------------------------------------------------------------
+
+build_favicons(overwrite = T)
+# usethis: add packages ---------------------------------------------------
 usethis::use_pipe()
 
-usethis::use_package("", type = "Depends")
+usethis::use_package("frameCleaneR", type = "Depends")
+usethis::use_package("valiData", type = "Depends")
+usethis::use_package("tidyBins", type = "Depends")
+usethis::use_package("presenteR", type = "Depends")
+usethis::use_package("autoStats", type = "Depends")
+
 usethis::use_package("rstudioapi", type = "Depends")
 usethis::use_package("rstudioapi", type = "Depends")
 usethis::use_package("rstudioapi", type = "Depends")
@@ -98,10 +106,9 @@ usethis::use_github_action("render-rmarkdown")
 usethis::use_github_action("pkgdown")
 usethis::use_github_actions()
 usethis::use_github_links()
-usethis::use_github_pages()
+usethis::use_github_pages(branch = "main", path = "/docs")
 
 # build and check ---------------------------------------------------------
-
 document()
 build_readme()
 build_site()

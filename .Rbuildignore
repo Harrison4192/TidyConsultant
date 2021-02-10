@@ -5,3 +5,6 @@
 ^docs$
 ^pkgdown$
 ^/Users/Harrison/Desktop/packages/TidyConsultant/_pkgdown\.yml$
+^README\.Rmd$
+^\.github$
+^LICENSE\.md$
