@@ -1,7 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# TidyConsultant
+# <img src="man/figures/TCmememan.png" align="right" alt="" width="220" />
+
+## Packages in the TidyConsultant universe
+
+-   [valiData](https://harrison4192.github.io/valiData)
+
+-   [frameCleaneR](https://harrison4192.github.io/frameCleaneR/)
+
+-   [tidyBins](https://harrison4192.github.io/tidyBins)
+
+-   [presenteR](https://harrison4192.github.io/presenteR)
+
+-   [autoStats](https://harrison4192.github.io/autoStats)
 
 <!-- badges: start -->
 
@@ -17,9 +29,25 @@ status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-pro
 
 <!-- badges: end -->
 
-Meta package for the Tidy Consultant Universe
+# Why TidyConsultant?
+
+The TidyConsultant packages are designed in mind for consultants who
+frequently work with heterogenous small-medium sized tabular data sets
+and interact with the messy world of MS office. This package builds on
+prior art from the [tidyverse](https://www.tidyverse.org/) and
+[officeverse](https://ardata-fr.github.io/officeverse/) and intends to
+provide useful functions for data scientists of any industry.
+
+------------------------------------------------------------------------
+
+![Marie Kondo, reknowned
+tidier](https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif)
+
+*Marie Kondo, reknowned tidier*
 
 ## Installation
+
+Loading TidyConsultant attaches the packages in the the *TC* universe.
 
 You can install the released version of TidyConsultant from
 [CRAN](https://CRAN.R-project.org) with:
@@ -34,15 +62,3 @@ And the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("Harrison4192/TidyConsultant")
 ```
-
-Explore packages in the TidyConsulting universe:
-
--   [valiData](https://harrison4192.github.io/valiData)
-
--   [frameCleaneR](https://harrison4192.github.io/frameCleaneR/)
-
--   [tidyBins](https://harrison4192.github.io/tidyBins)
-
--   [presenteR](https://harrison4192.github.io/presenteR)
-
--   [autoStats](https://harrison4192.github.io/autoStats)

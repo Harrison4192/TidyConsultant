@@ -18,6 +18,8 @@ navbar:
     - news
     right:
     - github
+    - linkedin
+    - twitter
   components:
     home:
       icon: fas fa-home fa-lg
@@ -27,4 +29,10 @@ navbar:
       href: news/index.html
     github:
       icon: fab fa-github fa-lg
-      href: https://github.com/Harrison4192/autoStats/
+      href: https://github.com/Harrison4192/TidyConsultant
+    linkedin:
+      icon: fab fa-linkedin fa-lg
+      href: https://linkedin.com/in/harrison-tietze-204b5366
+    twitter:
+      icon: fab fa-twitter fa-lg
+      href: https://twitter.com/Harri_Boi_R
