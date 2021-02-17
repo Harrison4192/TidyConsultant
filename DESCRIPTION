@@ -7,7 +7,7 @@ Authors@R:
            family = "Tietze",
            role = c("aut", "cre"),
            email = "Harrison4192@gmail.com")
-Maintainer: Harrison Tietze <harrison4192@gmail.com>
+Maintainer: Harrison Tietze <Harrison4192@gmail.com>
 Description: Loads tidyconsultant packages.
 License: MIT + file LICENSE
 Encoding: UTF-8
