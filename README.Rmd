@@ -12,6 +12,8 @@ home:
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+library(badger)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -24,15 +26,15 @@ knitr::opts_chunk$set(
 
 ## Packages in the TidyConsultant universe
 
-* [valiData](https://harrison4192.github.io/valiData)
+* [validata](https://harrison4192.github.io/validata)
 
-* [frameCleaneR](https://harrison4192.github.io/frameCleaneR/)
+* [framecleaner](https://harrison4192.github.io/framecleaner/)
 
-* [tidyBins](https://harrison4192.github.io/tidyBins)
+* [tidybins](https://harrison4192.github.io/tidybins)
 
-* [presenteR](https://harrison4192.github.io/presenteR)
+* [presenter](https://harrison4192.github.io/presenter)
 
-* [autoStats](https://harrison4192.github.io/autoStats)
+* [autostats](https://harrison4192.github.io/autostats)
 
 
 <!-- badges: start -->
@@ -64,7 +66,7 @@ The TidyConsultant packages are designed in mind for consultants who frequently 
 
 Loading TidyConsultant attaches the packages in the the *TC* universe.
 
-You can install the released version of TidyConsultant from [CRAN](https://CRAN.R-project.org) with:
+You can Install the released version of TidyConsultant from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("TidyConsultant")

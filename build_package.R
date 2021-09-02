@@ -1,7 +1,6 @@
+xfun::gsub_dir(pattern = "valiData", replacement = "validata")
 
 # load developer libraries ------------------------------------------------
-
-
 
 library(pacman)
 p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
@@ -109,11 +108,11 @@ usethis::use_github_links()
 usethis::use_github_pages(branch = "main", path = "/docs")
 
 # build and check ---------------------------------------------------------
-document()
-build_readme()
-build_site()
-check()
-preview_site()
+devtools::document()
+devtools::build_readme()
+devtools::build_site()
+devtools::check()
+devtools::preview_site()
 
 
 

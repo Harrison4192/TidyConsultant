@@ -5,15 +5,15 @@
 
 ## Packages in the TidyConsultant universe
 
--   [valiData](https://harrison4192.github.io/valiData)
+-   [validata](https://harrison4192.github.io/validata)
 
--   [frameCleaneR](https://harrison4192.github.io/frameCleaneR/)
+-   [framecleaner](https://harrison4192.github.io/framecleaner/)
 
--   [tidyBins](https://harrison4192.github.io/tidyBins)
+-   [tidybins](https://harrison4192.github.io/tidybins)
 
--   [presenteR](https://harrison4192.github.io/presenteR)
+-   [presenter](https://harrison4192.github.io/presenter)
 
--   [autoStats](https://harrison4192.github.io/autoStats)
+-   [autostats](https://harrison4192.github.io/autostats)
 
 <!-- badges: start -->
 
@@ -25,7 +25,7 @@ status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-pro
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/TidyConsultant?color=blue)](https://cran.r-project.org/package=TidyConsultant)
 [![](https://img.shields.io/github/languages/code-size/Harrison4192/TidyConsultant.svg)](https://github.com/Harrison4192/TidyConsultant)
-[![](https://img.shields.io/github/last-commit/Harrison4192/TidyConsultant.svg)](https://github.com/Harrison4192/TidyConsultant/commits/master)
+[![](https://img.shields.io/github/last-commit/Harrison4192/TidyConsultant.svg)](https://github.com/Harrison4192/TidyConsultant/commits/main)
 
 <!-- badges: end -->
 
@@ -49,7 +49,7 @@ tidier](https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif)
 
 Loading TidyConsultant attaches the packages in the the *TC* universe.
 
-You can install the released version of TidyConsultant from
+You can Install the released version of TidyConsultant from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
