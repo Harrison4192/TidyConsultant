@@ -15,12 +15,15 @@
 
 -   [autostats](https://harrison4192.github.io/autostats)
 
+Loading `TidyConsultant` installs and attaches all of these packages at
+once.
+
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-project.org/package=TidyConsultan)
+status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-project.org/package=TidyConsultant)
 [![R-CMD-check](https://github.com/Harrison4192/TidyConsultant/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/TidyConsultant/actions)
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/TidyConsultant?color=blue)](https://cran.r-project.org/package=TidyConsultant)
@@ -45,20 +48,19 @@ tidier](https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif)
 
 *Marie Kondo, reknowned tidier*
 
-## Installation
+## Installation and Loading
 
-Loading TidyConsultant attaches the packages in the the *TC* universe.
+Loading `TidyConsultant` automatically installs and attaches the
+packages in the the *TC* universe.
 
-You can Install the released version of TidyConsultant from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("TidyConsultant")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install and load the released version of `TidyConsultant` along
+with `tidyverse` using the following code
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Harrison4192/TidyConsultant")
+if (!require("pacman")) install.packages("pacman"); library(pacman)
+
+p_load(tidyverse, TidyConsultant)
 ```
+
+This is a great template to start your R script. Put any additional
+packages you may need inside the `p_load` command.

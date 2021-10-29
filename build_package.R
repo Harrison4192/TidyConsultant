@@ -31,12 +31,15 @@ ymlthis::pkgdown_template() %>%
 build_favicons(overwrite = T)
 # usethis: add packages ---------------------------------------------------
 usethis::use_pipe()
+usethis::use_r("hello_world")
 
-usethis::use_package("frameCleaneR", type = "Depends")
-usethis::use_package("valiData", type = "Depends")
-usethis::use_package("tidyBins", type = "Depends")
-usethis::use_package("presenteR", type = "Depends")
-usethis::use_package("autoStats", type = "Depends")
+usethis::use_package("framecleaner", type = "Depends")
+usethis::use_package("validata", type = "Depends")
+usethis::use_package("tidybins", type = "Depends")
+usethis::use_package("presenter", type = "Depends")
+usethis::use_package("autostats", type = "Depends")
+usethis::use_package("pacman", type = "Imports")
+
 
 usethis::use_package("rstudioapi", type = "Depends")
 usethis::use_package("rstudioapi", type = "Depends")
@@ -106,6 +109,10 @@ usethis::use_github_action("pkgdown")
 usethis::use_github_actions()
 usethis::use_github_links()
 usethis::use_github_pages(branch = "main", path = "/docs")
+
+devtools::release(check = T)
+
+usethis::use_cran_comments(open = rlang::is_interactive())
 
 # build and check ---------------------------------------------------------
 devtools::document()

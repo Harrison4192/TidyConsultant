@@ -9,3 +9,4 @@
 ^\.github$
 ^LICENSE\.md$
 TCmememan.xcf
+^cran-comments\.md$
