@@ -5,15 +5,15 @@
 
 ## Packages in the TidyConsultant universe
 
--   [validata](https://harrison4192.github.io/validata)
+-   [validata](https://harrison4192.github.io/validata/)
 
 -   [framecleaner](https://harrison4192.github.io/framecleaner/)
 
--   [tidybins](https://harrison4192.github.io/tidybins)
+-   [tidybins](https://harrison4192.github.io/tidybins/)
 
--   [presenter](https://harrison4192.github.io/presenter)
+-   [presenter](https://harrison4192.github.io/presenter/)
 
--   [autostats](https://harrison4192.github.io/autostats)
+-   [autostats](https://harrison4192.github.io/autostats/)
 
 Loading `TidyConsultant` installs and attaches all of these packages at
 once.

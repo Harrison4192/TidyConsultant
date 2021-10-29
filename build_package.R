@@ -114,6 +114,9 @@ devtools::release(check = T)
 
 usethis::use_cran_comments(open = rlang::is_interactive())
 
+devtools::check_win_devel()
+devtools::check_rhub()
+
 # build and check ---------------------------------------------------------
 devtools::document()
 devtools::build_readme()
