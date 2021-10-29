@@ -13,6 +13,7 @@ none
 Test function to pass cmd check
 }
 \examples{
-
+if(FALSE) {
 hello_world()
+}
 }

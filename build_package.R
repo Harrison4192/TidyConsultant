@@ -118,8 +118,7 @@ usethis::use_cran_comments(open = rlang::is_interactive())
 devtools::document()
 devtools::build_readme()
 devtools::build_site()
-devtools::check()
+devtools::check(cran = TRUE)
 devtools::preview_site()
-
 
 
