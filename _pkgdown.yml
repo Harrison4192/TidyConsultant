@@ -1,5 +1,6 @@
 template:
   params:
+    bootstrap: 5
     bootswatch: cerulean
     ganalytics: G-VPS4SG2YRY
 

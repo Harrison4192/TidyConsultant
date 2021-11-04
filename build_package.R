@@ -117,6 +117,13 @@ usethis::use_cran_comments(open = rlang::is_interactive())
 devtools::check_win_devel()
 devtools::check_rhub()
 
+# Install development version from GitHub
+devtools::install_github("r-lib/pkgdown")
+
+vignette("customise")
+sessionInfo()
+devtools::install_github('r-lib/downlit')
+
 # build and check ---------------------------------------------------------
 devtools::document()
 devtools::build_readme()
