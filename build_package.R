@@ -1,12 +1,13 @@
 xfun::gsub_dir(pattern = "valiData", replacement = "validata")
 
+
 # load developer libraries ------------------------------------------------
 
 library(pacman)
 p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
        ymlthis, magrittr, fs, covr, gitcreds, credentials,
        badger, hexSticker, gh)
-
+p_load(TidyConsultant)
 
 # add this file to .Rbuildignore ------------------------------------------
 
@@ -124,11 +125,16 @@ vignette("customise")
 sessionInfo()
 devtools::install_github('r-lib/downlit')
 
+import_tibble("insurance.csv") -> insurance
+usethis::use_data(insurance)
+usethis::use_vignette("TidyConsultant")
+usethis::use_r("data.csv")
 # build and check ---------------------------------------------------------
 devtools::document()
 devtools::build_readme()
 devtools::build_site()
 devtools::check(cran = TRUE)
 devtools::preview_site()
+devtools::build_vignettes()
 
-
+pacman::p_unload("all")

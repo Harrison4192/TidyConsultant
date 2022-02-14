@@ -1,0 +1,199 @@
+---
+title: "TidyConsultant"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TidyConsultant}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(TidyConsultant)
+library(tidyverse)
+```
+
+```{r}
+data(insurance)
+```
+## Analyze data properties with validata
+
+```{r}
+insurance %>% 
+  diagnose()
+```
+
+
+```{r}
+insurance %>% 
+  diagnose_numeric()
+```
+
+```{r}
+insurance %>% 
+  diagnose_category(everything(),  max_distinct = 7) %>% 
+  print(width = Inf)
+```
+
+```{r}
+insurance %>% 
+  determine_distinct(everything())
+```
+
+## Analyze data relationships with autostats
+
+```{r}
+insurance %>% 
+  auto_cor(sparse = TRUE) -> cors
+
+cors
+```
+
+Analyze the relationship between categorical and continuous variables
+```{r}
+insurance %>% 
+  auto_anova(everything(), baseline = "first_level") -> anovas1
+
+anovas1 %>% 
+  print(n = 50)
+```
+
+Arrange the relationships by significance
+
+```{r}
+anovas1 %>% 
+  select(target, predictor, level, estimate, target_mean, level_p.value, level_significance) %>% 
+  filter(level %>% str_detect("(Intercept)", negate = TRUE)) %>% 
+  arrange(level_p.value) %>% 
+  filter(level_p.value < .1)
+```
+
+From this we can conclude that smokers and males incur higher insurance charges. It may be beneficial to explore some interaction effects, considering that BMI's effect on charges will be sex-deoendent. 
+
+### explore model-based variable contributions
+
+```{r}
+insurance %>% 
+  tidy_formula(target = charges) -> charges_form
+
+charges_form
+```
+
+```{r message=FALSE, warning=FALSE}
+insurance %>% 
+  auto_variable_contributions(formula = charges_form)
+```
+
+```{r message=FALSE, warning=FALSE}
+insurance %>% 
+  auto_model_accuracy(formula = charges_form)
+```
+
+### create bins with tidybins
+
+```{r}
+insurance %>% 
+  bin_cols(charges) -> insurance_bins
+
+insurance_bins
+```
+
+Here we can see a summary of the binned cols. The with quintile "value" bins we can see that the top 20% of charges comes from the top x people. 
+
+```{r}
+insurance_bins %>% 
+  bin_summary()
+```
+
+## Create and analyze xgboost model for binary classification
+
+Let's see if we can predict whether a customer is a smoker.
+
+Xgboost considers the first level of a factor to be the "positive event" so 
+let's ensure that "yes" is the first level using `framecleaner::set_fct`
+
+```{r}
+insurance %>% 
+  set_fct(smoker, first_level = "yes") -> insurance
+
+insurance %>% 
+  create_dummies(where(is.character), remove_first_dummy = T) -> insurance_dummies
+
+insurance_dummies %>% 
+  diagnose
+
+```
+
+And create a new formula for the binary classification.
+
+```{r}
+insurance_dummies %>% 
+  tidy_formula(target = smoker) -> smoker_form
+
+smoker_form
+```
+
+Now we can create a basic model using `tidy_xgboost`. Built in heuristic will automatically recognize this as a binary classification task
+
+```{r}
+insurance_dummies %>% 
+  tidy_xgboost(formula = smoker_form) -> smoker_xgb_classif
+
+
+```
+
+
+We can examine variable importance using the autostats model vizualization function.
+
+```{r}
+smoker_xgb_classif %>% 
+  visualize_model()
+```
+
+Obtain predictions
+
+```{r}
+smoker_xgb_classif %>% 
+  tidy_predict(newdata = insurance_dummies, form = smoker_form) -> insurance_fit
+```
+
+
+Analyze the probabilities using tidybins. We can find the top 25% of customers most likely to be smokers. 
+
+```{r}
+insurance_fit %>% 
+  bin_cols(smoker_preds_prob_smoker_xgb_classif, n_bins = 5) -> insurance_fit1
+
+insurance_fit1 %>% 
+  bin_summary()
+```
+
+Bin summary helps diagnose the fact that the bottom 2 bins only contain 1 unique value, so we may want a different approach to analyze these bins.
+
+Evaluate the training error. `eval_preds` uses both the probability estimates and binary estimates to calculate a variety of metrics. 
+
+```{r}
+insurance_fit1 %>% 
+  eval_preds()
+```
+Traditional `yardstick` confusion matrix can be created manually. 
+
+```{r}
+insurance_fit1 %>% 
+  yardstick::conf_mat(truth = smoker, estimate = smoker_preds_class_smoker_xgb_classif) -> conf_mat_sm
+
+conf_mat_sm
+```
+
+```{r}
+conf_mat_sm %>% 
+  summary
+```
+

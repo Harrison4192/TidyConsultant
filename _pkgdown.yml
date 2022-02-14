@@ -12,6 +12,7 @@ navbar:
   structure:
     left:
     - home
+    - intro
     - news
     right:
     - github
