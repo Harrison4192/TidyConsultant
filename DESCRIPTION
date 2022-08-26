@@ -29,6 +29,5 @@ LazyData: true
 Suggests: 
     rmarkdown,
     knitr,
-    yardstick,
-    tidyverse
+    yardstick
 VignetteBuilder: knitr

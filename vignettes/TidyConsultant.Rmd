@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(TidyConsultant)
-library(tidyverse)
 ```
 
 Here we use the TidyConsultant universe to analyze the insurance data set, which consists of a population of people described by their characteristics and their insurance charge. 
@@ -69,14 +68,16 @@ anovas1 %>%
   print(n = 50)
 ```
 
-Arrange the relationships by significance
+Use the sparse option to show only the most significant effects
 
 ```{r}
-anovas1 %>% 
-  select(target, predictor, level, estimate, target_mean, level_p.value, level_significance) %>% 
-  filter(level %>% str_detect("(Intercept)", negate = TRUE)) %>% 
-  arrange(level_p.value) %>% 
-  filter(level_p.value < .1)
+
+insurance %>% 
+  auto_anova(everything(), baseline = "first_level", sparse = T, pval_thresh = .1) -> anovas2
+
+anovas2 %>% 
+  print(n = 50)
+
 ```
 
 From this we can conclude that smokers and males incur higher insurance charges. It may be beneficial to explore some interaction effects, considering that BMI's effect on charges will be sex-dependent. 
