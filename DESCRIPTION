@@ -31,5 +31,6 @@ Suggests:
     knitr,
     yardstick,
     Ckmeans.1d.dp,
-    ggstance
+    ggstance,
+    broom.mixed
 VignetteBuilder: knitr
