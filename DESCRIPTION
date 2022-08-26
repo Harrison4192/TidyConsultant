@@ -22,7 +22,8 @@ Imports:
     validata,
     presenter,
     autostats,
-    tidybins
+    tidybins,
+    Ckmeans.1d.dp
 Depends: 
     R (>= 2.10)
 LazyData: true
@@ -30,7 +31,6 @@ Suggests:
     rmarkdown,
     knitr,
     yardstick,
-    Ckmeans.1d.dp,
     ggstance,
     broom.mixed
 VignetteBuilder: knitr
