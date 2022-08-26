@@ -163,8 +163,8 @@
 <code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">determine_distinct</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; database has 1 duplicate rows, and will eliminate them</span></span></code></pre></div>
-<div id="htmlwidget-f9f15d8e0c1edc728c9c" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f9f15d8e0c1edc728c9c">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cc525309a34e587a959f" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cc525309a34e587a959f">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="analyze-data-relationships-with-autostats">Analyze data relationships with autostats<a class="anchor" aria-label="anchor" href="#analyze-data-relationships-with-autostats"></a>
@@ -277,15 +277,15 @@
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fa47c44e1d0&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x7fb595acf8c8&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-12-1.png" width="700"><img src="TidyConsultant_files/figure-html/unnamed-chunk-12-2.png" width="700"></p>
+<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">auto_model_accuracy</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<template id="f6cb2744-698e-4869-bd11-22c6a1aabde9"><style>
+<template id="56c597ce-f6f7-4589-b1f8-7ff384e48998"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -324,35 +324,35 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-4515831c{}.cl-450c0cce{font-family:'Helvetica';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-450c0cec{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-450c0cf6{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-450c2dbc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-450c76be{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76c8{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76c9{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76d2{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76d3{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76dc{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76dd{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76e6{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76e7{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76f0{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-450c76fa{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-4515831c">
+<style>.cl-4aac4250{}.cl-4aa1a4d0{font-family:'Helvetica';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-4aa1a4ee{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-4aa1a4ef{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-4aa1c3fc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4aa21014{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21028{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21029{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21032{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21033{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa2103c{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21046{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21047{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21048{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21050{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4aa21051{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-4aac4250">
 <thead>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-450c76f0"><p class="cl-450c2dbc"><span class="cl-450c0cce">4 - fold  cross-validated accuracy for regression model of charges on dataset Table</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-4aa21050"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4d0">4 - fold  cross-validated accuracy for regression model of charges on dataset Table</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-450c76f0"><p class="cl-450c2dbc"><span class="cl-450c0cce">model</span></p></td>
-<td class="cl-450c76e7"><p class="cl-450c2dbc"><span class="cl-450c0cce">metric</span></p></td>
-<td class="cl-450c76e6"><p class="cl-450c2dbc"><span class="cl-450c0cce">mean_score</span></p></td>
-<td class="cl-450c76fa"><p class="cl-450c2dbc"><span class="cl-450c0cce">std_err</span></p></td>
+<td class="cl-4aa21050"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4d0">model</span></p></td>
+<td class="cl-4aa21048"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4d0">metric</span></p></td>
+<td class="cl-4aa21047"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4d0">mean_score</span></p></td>
+<td class="cl-4aa21051"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4d0">std_err</span></p></td>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-450c76c9"><p class="cl-450c2dbc"><span class="cl-450c0cec">xgboost</span></p></td>
-<td class="cl-450c76c8"><p class="cl-450c2dbc"><span class="cl-450c0cec">rmse</span></p></td>
-<td class="cl-450c76be"><p class="cl-450c2dbc"><span class="cl-450c0cf6">4826.59</span></p></td>
-<td class="cl-450c76d2"><p class="cl-450c2dbc"><span class="cl-450c0cf6">92.4319</span></p></td>
+<td rowspan="2" class="cl-4aa21029"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ee">xgboost</span></p></td>
+<td class="cl-4aa21028"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ee">rmse</span></p></td>
+<td class="cl-4aa21014"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ef">4826.59</span></p></td>
+<td class="cl-4aa21032"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ef">92.4319</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-450c76dc"><p class="cl-450c2dbc"><span class="cl-450c0cec">rsq</span></p></td>
-<td class="cl-450c76d3"><p class="cl-450c2dbc"><span class="cl-450c0cf6">0.84</span></p></td>
-<td class="cl-450c76dd"><p class="cl-450c2dbc"><span class="cl-450c0cf6">0.0119</span></p></td>
+<td class="cl-4aa2103c"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ee">rsq</span></p></td>
+<td class="cl-4aa21033"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ef">0.84</span></p></td>
+<td class="cl-4aa21046"><p class="cl-4aa1c3fc"><span class="cl-4aa1a4ef">0.0119</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="107eb0b2-7999-43a7-8fe2-cfa038cf42af"></div>
+</div></template><div class="flextable-shadow-host" id="98230684-eb66-4896-96f0-6a247057e1dd"></div>
 <script>
-var dest = document.getElementById("107eb0b2-7999-43a7-8fe2-cfa038cf42af");
-var template = document.getElementById("f6cb2744-698e-4869-bd11-22c6a1aabde9");
+var dest = document.getElementById("98230684-eb66-4896-96f0-6a247057e1dd");
+var template = document.getElementById("56c597ce-f6f7-4589-b1f8-7ff384e48998");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -445,7 +445,7 @@ fantome.appendChild(templateContent);
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fa48247b8f0&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x7fb584440748&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>. Built in heuristic will automatically recognize this as a binary classification task. We can tweak some parameters to add some regularization and increase the number of trees. Xgboost will automatically output feature importance on the training set, and a measure of accuracy tested on a validation set.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
@@ -461,7 +461,7 @@ fantome.appendChild(templateContent);
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy binary         0.959 smoker</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas   binary         0.903 smoker</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> roc_auc  binary         0.984 smoker</span></span></code></pre></div>
-<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
+<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-19-1.png" width="700"></p>
 <p>Obtain predictions</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op">%&gt;%</span> </span>
