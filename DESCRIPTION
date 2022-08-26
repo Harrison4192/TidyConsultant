@@ -30,5 +30,6 @@ Suggests:
     rmarkdown,
     knitr,
     yardstick,
-    Ckmeans.1d.dp
+    Ckmeans.1d.dp,
+    ggstance
 VignetteBuilder: knitr
