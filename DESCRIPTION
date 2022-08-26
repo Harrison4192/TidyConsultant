@@ -29,5 +29,6 @@ LazyData: true
 Suggests: 
     rmarkdown,
     knitr,
-    yardstick
+    yardstick,
+    Ckmeans.1d.dp
 VignetteBuilder: knitr
