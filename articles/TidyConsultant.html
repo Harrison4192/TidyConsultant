@@ -106,7 +106,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>warning <span class="op">=</span> <span class="cn">FALSE</span>, message <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://harrison4192.github.io/TidyConsultant/" class="external-link">TidyConsultant</a></span><span class="op">)</span></span></code></pre></div>
-<p>Here we use the TidyConsultant universe to analyze the insurance data set, which consists of a population of people described by their characteristics and their insurance charge.</p>
+<p>In this vignette we demonstrate how the various packages in the TidyConsultant universe work together in a data science workflow by analyzing insurance data set, which consists of a population of people described by their characteristics and their insurance charge.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">insurance</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
@@ -163,8 +163,8 @@
 <code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">determine_distinct</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; database has 1 duplicate rows, and will eliminate them</span></span></code></pre></div>
-<div id="htmlwidget-ab5d5f700d7829540e84" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ab5d5f700d7829540e84">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-25208524da2248a3d45d" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-25208524da2248a3d45d">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="analyze-data-relationships-with-autostats">Analyze data relationships with autostats<a class="anchor" aria-label="anchor" href="#analyze-data-relationships-with-autostats"></a>
@@ -277,7 +277,7 @@
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fdbd5ad4cc0&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x7fcf2aac4358&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
@@ -285,7 +285,7 @@
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">auto_model_accuracy</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<template id="c70b8872-7457-4883-a54e-f1f465d2c677"><style>
+<template id="72bf28fd-f9d4-4fb5-8f12-7caf64fdeabe"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -324,35 +324,35 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-c55733f6{}.cl-c54dac28{font-family:'Helvetica';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-c54dac46{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-c54dac47{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-c54dce7e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c54e1ed8{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1ee2{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1ee3{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1eec{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1eed{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1ef6{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1f00{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1f01{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1f0a{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1f0b{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c54e1f0c{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-c55733f6">
+<style>.cl-83b406de{}.cl-83ab66dc{font-family:'Helvetica';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-83ab66fa{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-83ab6704{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-83ab915c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-83abd9dc{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9e6{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9f0{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9f1{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9f2{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9fa{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abd9fb{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abda04{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abda05{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abda0e{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-83abda0f{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-83b406de">
 <thead>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-c54e1f0b"><p class="cl-c54dce7e"><span class="cl-c54dac28">4 - fold  cross-validated accuracy for regression model of charges on dataset Table</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-83abda0e"><p class="cl-83ab915c"><span class="cl-83ab66dc">4 - fold  cross-validated accuracy for regression model of charges on dataset Table</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c54e1f0b"><p class="cl-c54dce7e"><span class="cl-c54dac28">model</span></p></td>
-<td class="cl-c54e1f0a"><p class="cl-c54dce7e"><span class="cl-c54dac28">metric</span></p></td>
-<td class="cl-c54e1f01"><p class="cl-c54dce7e"><span class="cl-c54dac28">mean_score</span></p></td>
-<td class="cl-c54e1f0c"><p class="cl-c54dce7e"><span class="cl-c54dac28">std_err</span></p></td>
+<td class="cl-83abda0e"><p class="cl-83ab915c"><span class="cl-83ab66dc">model</span></p></td>
+<td class="cl-83abda05"><p class="cl-83ab915c"><span class="cl-83ab66dc">metric</span></p></td>
+<td class="cl-83abda04"><p class="cl-83ab915c"><span class="cl-83ab66dc">mean_score</span></p></td>
+<td class="cl-83abda0f"><p class="cl-83ab915c"><span class="cl-83ab66dc">std_err</span></p></td>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c54e1ee3"><p class="cl-c54dce7e"><span class="cl-c54dac46">xgboost</span></p></td>
-<td class="cl-c54e1ee2"><p class="cl-c54dce7e"><span class="cl-c54dac46">rmse</span></p></td>
-<td class="cl-c54e1ed8"><p class="cl-c54dce7e"><span class="cl-c54dac47">4826.59</span></p></td>
-<td class="cl-c54e1eec"><p class="cl-c54dce7e"><span class="cl-c54dac47">92.4319</span></p></td>
+<td rowspan="2" class="cl-83abd9f0"><p class="cl-83ab915c"><span class="cl-83ab66fa">xgboost</span></p></td>
+<td class="cl-83abd9e6"><p class="cl-83ab915c"><span class="cl-83ab66fa">rmse</span></p></td>
+<td class="cl-83abd9dc"><p class="cl-83ab915c"><span class="cl-83ab6704">4826.59</span></p></td>
+<td class="cl-83abd9f1"><p class="cl-83ab915c"><span class="cl-83ab6704">92.4319</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c54e1ef6"><p class="cl-c54dce7e"><span class="cl-c54dac46">rsq</span></p></td>
-<td class="cl-c54e1eed"><p class="cl-c54dce7e"><span class="cl-c54dac47">0.84</span></p></td>
-<td class="cl-c54e1f00"><p class="cl-c54dce7e"><span class="cl-c54dac47">0.0119</span></p></td>
+<td class="cl-83abd9fa"><p class="cl-83ab915c"><span class="cl-83ab66fa">rsq</span></p></td>
+<td class="cl-83abd9f2"><p class="cl-83ab915c"><span class="cl-83ab6704">0.84</span></p></td>
+<td class="cl-83abd9fb"><p class="cl-83ab915c"><span class="cl-83ab6704">0.0119</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="4c205d7f-ab73-48a6-9cf3-dd6525b334bb"></div>
+</div></template><div class="flextable-shadow-host" id="3a2a66d9-b309-421b-a7ea-eef4b7fede9f"></div>
 <script>
-var dest = document.getElementById("4c205d7f-ab73-48a6-9cf3-dd6525b334bb");
-var template = document.getElementById("c70b8872-7457-4883-a54e-f1f465d2c677");
+var dest = document.getElementById("3a2a66d9-b309-421b-a7ea-eef4b7fede9f");
+var template = document.getElementById("72bf28fd-f9d4-4fb5-8f12-7caf64fdeabe");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -445,7 +445,7 @@ fantome.appendChild(templateContent);
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fdbc3769c90&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x7fcf16d29be8&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>. Built in heuristic will automatically recognize this as a binary classification task. We can tweak some parameters to add some regularization and increase the number of trees. Xgboost will automatically output feature importance on the training set, and a measure of accuracy tested on a validation set.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
