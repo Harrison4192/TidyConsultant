@@ -183,10 +183,10 @@ smoker_xgb_classif %>%
 Analyze the probabilities using tidybins. We can find the top 20% of customers most likely to be smokers. 
 
 ```{r}
-names(insurance_fit)[length(names(insurance_fit)) - 1] -> class_preds
+names(insurance_fit)[length(names(insurance_fit)) - 1] -> prob_preds
 
 insurance_fit %>% 
-  bin_cols(class_preds, n_bins = 5) -> insurance_fit1
+  bin_cols(prob_preds, n_bins = 5) -> insurance_fit1
 
 insurance_fit1 %>% 
   bin_summary()
@@ -202,8 +202,10 @@ insurance_fit1 %>%
 Traditional `yardstick` confusion matrix can be created manually. 
 
 ```{r}
+names(insurance_fit)[length(names(insurance_fit))] -> class_preds
+
 insurance_fit1 %>% 
-  yardstick::conf_mat(truth = smoker, estimate = smoker_preds_class_smoker_xgb_classif) -> conf_mat_sm
+  yardstick::conf_mat(truth = smoker, estimate = class_preds) -> conf_mat_sm
 
 conf_mat_sm
 ```
