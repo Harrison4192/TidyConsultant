@@ -26,6 +26,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,27 +53,27 @@
   </a>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="articles/TidyConsultant.html">Get started</a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/Harrison4192/TidyConsultant">
+  <a href="https://github.com/Harrison4192/TidyConsultant" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://linkedin.com/in/harrison-tietze-204b5366">
+  <a href="https://linkedin.com/in/harrison-tietze-204b5366" class="external-link">
     <span class="fab fa-linkedin fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/Harri_Boi_R">
+  <a href="https://twitter.com/Harri_Boi_R" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -89,43 +91,52 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="section" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#section" class="anchor"></a><img src="reference/figures/TCmememan.png" align="right" alt="" width="220">
+<div class="section level1">
+<div class="page-header"><h1 id="section">
+<img src="reference/figures/TCmememan.png" align="right" alt="" width="220"><a class="anchor" aria-label="anchor" href="#section"></a>
 </h1></div>
-<div id="packages-in-the-tidyconsultant-universe" class="section level2">
-<h2 class="hasAnchor">
-<a href="#packages-in-the-tidyconsultant-universe" class="anchor"></a>Packages in the TidyConsultant universe</h2>
+<div class="section level2">
+<h2 id="packages-in-the-tidyconsultant-universe">Packages in the TidyConsultant universe<a class="anchor" aria-label="anchor" href="#packages-in-the-tidyconsultant-universe"></a>
+</h2>
 <ul>
-<li><p><a href="https://harrison4192.github.io/validata/">validata</a></p></li>
-<li><p><a href="https://harrison4192.github.io/framecleaner/">framecleaner</a></p></li>
-<li><p><a href="https://harrison4192.github.io/tidybins/">tidybins</a></p></li>
-<li><p><a href="https://harrison4192.github.io/presenter/">presenter</a></p></li>
-<li><p><a href="https://harrison4192.github.io/autostats/">autostats</a></p></li>
+<li><p><a href="https://harrison4192.github.io/validata/" class="external-link">validata</a></p></li>
+<li><p><a href="https://harrison4192.github.io/framecleaner/" class="external-link">framecleaner</a></p></li>
+<li><p><a href="https://harrison4192.github.io/tidybins/" class="external-link">tidybins</a></p></li>
+<li><p><a href="https://harrison4192.github.io/presenter/" class="external-link">presenter</a></p></li>
+<li><p><a href="https://harrison4192.github.io/autostats/" class="external-link">autostats</a></p></li>
 </ul>
 <p>Loading <code>TidyConsultant</code> installs and attaches all of these packages at once.</p>
 <!-- badges: start -->
 
-
 <!-- badges: end -->
 </div>
 </div>
-<div id="why-tidyconsultant" class="section level1">
-<h1 class="hasAnchor">
-<a href="#why-tidyconsultant" class="anchor"></a>Why TidyConsultant?</h1>
-<p>The TidyConsultant packages are designed in mind for consultants who frequently work with heterogenous small-medium sized tabular data sets and interact with the messy world of MS office. This package builds on prior art from the <a href="https://www.tidyverse.org/">tidyverse</a> and <a href="https://ardata-fr.github.io/officeverse/">officeverse</a> and intends to provide useful functions for data scientists of any industry.</p>
+<div class="section level1">
+<h1 id="why-tidyconsultant">Why TidyConsultant?<a class="anchor" aria-label="anchor" href="#why-tidyconsultant"></a>
+</h1>
+<p>The TidyConsultant packages are designed in mind for consultants who frequently work with heterogenous small-medium sized tabular data sets and interact with the messy world of MS office. This package builds on prior art from the <a href="https://www.tidyverse.org/" class="external-link">tidyverse</a> and <a href="https://ardata-fr.github.io/officeverse/" class="external-link">officeverse</a> and intends to provide useful functions for data scientists of any industry.</p>
 <hr>
-<p><img src="https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif" alt="Marie Kondo, reknowned tidier"></p>
-<p><em>Marie Kondo, reknowned tidier</em></p>
-<div id="installation-and-loading" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation-and-loading" class="anchor"></a>Installation and Loading</h2>
+<div class="figure">
+<img src="https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif" alt=""><p class="caption">Marie Kondo, reknowned tidier</p>
+</div>
+</div>
+<div class="section level1">
+<h1 id="packages-overview">Packages Overview<a class="anchor" aria-label="anchor" href="#packages-overview"></a>
+</h1>
+<p><code>validata</code>: understand the properties of a data frame. Which columns make the data frame distinct? Do 2 columns have a 1-1 mapping or 1-many mapping between values? What is overlap of unique values between 2 columns? Get quick summary of # unique, missing values, and a variety of properties of numeric columns.</p>
+<p><code>framecleaner</code>: simplifies common dplyr actions directly on a dataframe: automated type coercion, dealing with NAs, padding characters, creating dummies, importing files</p>
+<p><code>tidybins</code>: unified interface to creating and summarizing bins directly in a data frame</p>
+<p><code>presenter</code>: MS excel and powerpoint compatible output, with automated naming and formatting</p>
+<p><code>autostats</code>: simplified formula manipulation and modeling. Designed for quick exploratory analysis and visualization.</p>
+<div class="section level2">
+<h2 id="installation-and-loading">Installation and Loading<a class="anchor" aria-label="anchor" href="#installation-and-loading"></a>
+</h2>
 <p>Loading <code>TidyConsultant</code> automatically installs and attaches the packages in the the <em>TC</em> universe.</p>
 <p>You can install and load the released version of <code>TidyConsultant</code> along with <code>tidyverse</code> using the following code</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://github.com/trinker/pacman">"pacman"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pacman"</span><span class="op">)</span>; <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/trinker/pacman">pacman</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>, <span class="va">TidyConsultant</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://github.com/trinker/pacman" class="external-link">"pacman"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pacman"</span><span class="op">)</span>; <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/trinker/pacman" class="external-link">pacman</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html" class="external-link">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>, <span class="va">TidyConsultant</span><span class="op">)</span></span></code></pre></div>
 <p>This is a great template to start your R script. Put any additional packages you may need inside the <code>p_load</code> command.</p>
 </div>
 </div>
@@ -134,51 +145,51 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=TidyConsultant">https://​cloud.r-project.org/​package=TidyConsultant</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/Harrison4192/TidyConsultant/">https://​github.com/​Harrison4192/​TidyConsultant/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/Harrison4192/TidyConsultant/issues">https://​github.com/​Harrison4192/​TidyConsultant/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=TidyConsultant" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/Harrison4192/TidyConsultant/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/Harrison4192/TidyConsultant/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing TidyConsultant</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Harrison Tietze <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://CRAN.R-project.org/package=TidyConsultant"><img src="https://www.r-pkg.org/badges/version/TidyConsultant" alt="CRAN status"></a></li>
-<li><a href="https://github.com/Harrison4192/TidyConsultant/actions"><img src="https://github.com/Harrison4192/TidyConsultant/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://cran.r-project.org/package=TidyConsultant"><img src="http://cranlogs.r-pkg.org/badges/grand-total/TidyConsultant?color=blue"></a></li>
-<li><a href="https://github.com/Harrison4192/TidyConsultant"><img src="https://img.shields.io/github/languages/code-size/Harrison4192/TidyConsultant.svg"></a></li>
-<li><a href="https://github.com/Harrison4192/TidyConsultant/commits/main"><img src="https://img.shields.io/github/last-commit/Harrison4192/TidyConsultant.svg"></a></li>
-</ul>
-</div>
-</div>
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Harrison Tietze.</p>
+  <p></p>
+<p>Developed by Harrison Tietze.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -186,6 +197,8 @@
 
   
 
+
+  
 
   </body>
 </html>
