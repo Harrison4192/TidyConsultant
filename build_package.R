@@ -133,7 +133,7 @@ usethis::use_r("data.csv")
 devtools::document()
 devtools::build_readme()
 devtools::build_site()
-devtools::check(cran = TRUE)
+devtools::check()
 devtools::preview_site()
 devtools::build_vignettes()
 

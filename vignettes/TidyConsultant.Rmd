@@ -20,6 +20,8 @@ library(TidyConsultant)
 library(tidyverse)
 ```
 
+Here we use the TidyConsultant universe to analyze the insurance data set, which consists of a population of people described by their characteristics and their insurance charge. 
+
 ```{r}
 data(insurance)
 ```
@@ -41,6 +43,8 @@ insurance %>%
   diagnose_category(everything(),  max_distinct = 7) %>% 
   print(width = Inf)
 ```
+
+We can infer that each row represents a person, uniquely identified by 5 characteristics. The charges column is also unique, but simply because it is a high-precision double.
 
 ```{r}
 insurance %>% 
@@ -75,31 +79,39 @@ anovas1 %>%
   filter(level_p.value < .1)
 ```
 
-From this we can conclude that smokers and males incur higher insurance charges. It may be beneficial to explore some interaction effects, considering that BMI's effect on charges will be sex-deoendent. 
+From this we can conclude that smokers and males incur higher insurance charges. It may be beneficial to explore some interaction effects, considering that BMI's effect on charges will be sex-dependent. 
+
+### create dummies out of categorical variables
+
+```{r}
+insurance %>% 
+  create_dummies(remove_most_frequent_dummy = T) -> insurance1
+```
+
 
 ### explore model-based variable contributions
 
 ```{r}
-insurance %>% 
+insurance1 %>% 
   tidy_formula(target = charges) -> charges_form
 
 charges_form
 ```
 
 ```{r message=FALSE, warning=FALSE}
-insurance %>% 
+insurance1 %>% 
   auto_variable_contributions(formula = charges_form)
 ```
 
 ```{r message=FALSE, warning=FALSE}
-insurance %>% 
+insurance1 %>% 
   auto_model_accuracy(formula = charges_form)
 ```
 
 ### create bins with tidybins
 
 ```{r}
-insurance %>% 
+insurance1 %>% 
   bin_cols(charges) -> insurance_bins
 
 insurance_bins
@@ -140,22 +152,21 @@ insurance_dummies %>%
 smoker_form
 ```
 
-Now we can create a basic model using `tidy_xgboost`. Built in heuristic will automatically recognize this as a binary classification task
+Now we can create a basic model using `tidy_xgboost`. Built in heuristic will automatically recognize this as a binary classification task. We can tweak some parameters to add some regularization and increase the number of trees. Xgboost will automatically output feature importance on the training set, and a measure of accuracy tested on a validation set. 
 
 ```{r}
 insurance_dummies %>% 
-  tidy_xgboost(formula = smoker_form) -> smoker_xgb_classif
+  tidy_xgboost(formula = smoker_form, 
+              mtry = .5,
+              trees = 100L,
+              loss_reduction = 1,
+              alpha = .1,
+              sample_size = .7) -> smoker_xgb_classif
 
 
 ```
 
 
-We can examine variable importance using the autostats model vizualization function.
-
-```{r}
-smoker_xgb_classif %>% 
-  visualize_model()
-```
 
 Obtain predictions
 
@@ -165,7 +176,8 @@ smoker_xgb_classif %>%
 ```
 
 
-Analyze the probabilities using tidybins. We can find the top 25% of customers most likely to be smokers. 
+
+Analyze the probabilities using tidybins. We can find the top 20% of customers most likely to be smokers. 
 
 ```{r}
 insurance_fit %>% 
@@ -175,7 +187,6 @@ insurance_fit1 %>%
   bin_summary()
 ```
 
-Bin summary helps diagnose the fact that the bottom 2 bins only contain 1 unique value, so we may want a different approach to analyze these bins.
 
 Evaluate the training error. `eval_preds` uses both the probability estimates and binary estimates to calculate a variety of metrics. 
 
@@ -192,8 +203,6 @@ insurance_fit1 %>%
 conf_mat_sm
 ```
 
-```{r}
-conf_mat_sm %>% 
-  summary
-```
+
+
 

@@ -12,7 +12,7 @@ Description: Loads the 5 packages in the Tidy Consultant Universe. This collecti
     data analysis, or quantitative consulting. The functions in these packages range from data cleaning, data validation, data binning, statistical modeling, and file exporting.  
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 URL: https://harrison4192.github.io/TidyConsultant/, https://github.com/Harrison4192/TidyConsultant
 BugReports: https://github.com/Harrison4192/TidyConsultant/issues
 Imports: 
@@ -29,5 +29,6 @@ LazyData: true
 Suggests: 
     rmarkdown,
     knitr,
-    tidypredict
+    yardstick,
+    tidyverse
 VignetteBuilder: knitr
