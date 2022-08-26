@@ -24,7 +24,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(TidyConsultant)
 ```
 
-Here we use the TidyConsultant universe to analyze the insurance data set, which consists of a population of people described by their characteristics and their insurance charge. 
+In this vignette we demonstrate how the various packages in the TidyConsultant universe work together in a data science workflow by analyzing insurance data set, which consists of a population of people described by their characteristics and their insurance charge. 
 
 ```{r}
 data(insurance)
