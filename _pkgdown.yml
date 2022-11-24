@@ -6,19 +6,22 @@ template:
 
 
 development:
-  mode: auto
+  mode: release
 
 navbar:
   structure:
     left:
     - home
     - intro
-    - news
+    - articles
     right:
     - github
     - linkedin
     - twitter
   components:
+    articles:
+      text: Articles
+      href: articles/Inference-with-xgboost.html
     home:
       icon: fas fa-home fa-lg
       href: index.html

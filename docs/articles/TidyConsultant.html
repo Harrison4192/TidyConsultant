@@ -55,7 +55,7 @@
   <a href="../articles/TidyConsultant.html">Get started</a>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="../articles/Inference-with-xgboost.html">Articles</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -116,8 +116,8 @@ described by their characteristics and their insurance charge.</p>
 <h2 id="analyze-data-properties-with-validata">Analyze data properties with validata<a class="anchor" aria-label="anchor" href="#analyze-data-properties-with-validata"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose</span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose.html" class="external-link">diagnose</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 6</span></span></span>
 <span><span class="co">#&gt;   variables types     missing_count missing_percent unique_count unique_rate</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -129,8 +129,8 @@ described by their characteristics and their insurance charge.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> region    character             0               0            4     0.002<span style="text-decoration: underline;">99</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> charges   numeric               0               0         <span style="text-decoration: underline;">1</span>337     0.999</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose_numeric</span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose_numeric.html" class="external-link">diagnose_numeric</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 11</span></span></span>
 <span><span class="co">#&gt;   variab…¹ zeros minus  infs    min   mean    max |x|&lt;1…² integ…³   mode mode_…⁴</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -141,8 +141,8 @@ described by their characteristics and their insurance charge.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​variables, ²​`|x|&lt;1 (ratio)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ³​integer_ratio, ⁴​mode_ratio</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose_category</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>,  max_distinct <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose_category.html" class="external-link">diagnose_category</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,  max_distinct <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>width <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 4</span></span></span>
 <span><span class="co">#&gt;    column   level         n  ratio</span></span>
@@ -165,17 +165,17 @@ described by their characteristics and their insurance charge.</p>
 by 5 characteristics. The charges column is also unique, but simply
 because it is a high-precision double.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">determine_distinct</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/determine_distinct.html" class="external-link">determine_distinct</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; database has 1 duplicate rows, and will eliminate them</span></span></code></pre></div>
-<div id="htmlwidget-9f2781caa2015387f07d" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9f2781caa2015387f07d">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f688bc5805ea8ee07d5f" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f688bc5805ea8ee07d5f">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="analyze-data-relationships-with-autostats">Analyze data relationships with autostats<a class="anchor" aria-label="anchor" href="#analyze-data-relationships-with-autostats"></a>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_cor</span><span class="op">(</span>sparse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">cors</span></span>
 <span></span>
 <span><span class="va">cors</span></span>
@@ -205,10 +205,10 @@ because it is a high-precision double.</p>
 <p>Analyze the relationship between categorical and continuous
 variables</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas1</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas1</span></span>
 <span></span>
-<span><span class="va">anovas1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">anovas1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 32 × 12</span></span></span>
 <span><span class="co">#&gt;    target   predictor level     estimate targe…¹     n std.e…² level_p…³ level…⁴</span></span>
@@ -252,10 +252,10 @@ variables</p>
 <p>Use the sparse option to show only the most significant effects</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span>, sparse <span class="op">=</span> <span class="cn">T</span>, pval_thresh <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas2</span></span>
+<span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span>, sparse <span class="op">=</span> <span class="cn">T</span>, pval_thresh <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas2</span></span>
 <span></span>
-<span><span class="va">anovas2</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">anovas2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 8</span></span></span>
 <span><span class="co">#&gt;   target  predictor level      estimate target_mean     n level_p.value level_…¹</span></span>
@@ -274,28 +274,28 @@ sex-dependent.</p>
 <h3 id="create-dummies-out-of-categorical-variables">create dummies out of categorical variables<a class="anchor" aria-label="anchor" href="#create-dummies-out-of-categorical-variables"></a>
 </h3>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">create_dummies</span><span class="op">(</span>remove_most_frequent_dummy <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="explore-model-based-variable-contributions">explore model-based variable contributions<a class="anchor" aria-label="anchor" href="#explore-model-based-variable-contributions"></a>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_formula</span><span class="op">(</span>target <span class="op">=</span> <span class="va">charges</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">charges_form</span></span>
 <span></span>
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x00000299f7a30b28&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x0000016a9c2aeaa0&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
 <p><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_model_accuracy</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<template id="578efe11-f6ad-44ce-95da-c24a0421829a"><style>
+<template id="451e108b-d9ea-4e89-b3fc-001ea7400249"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -331,35 +331,35 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-998b614a{}.cl-99806b8c{font-family:'Arial';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-99806b96{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-99806ba0{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-99809012{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9980cd84{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cd8e{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cd8f{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cd98{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cd99{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cda2{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cda3{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cda4{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cdac{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cdad{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9980cdae{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-998b614a">
+<style>.cl-1e39850c{}.cl-1e2d6af6{font-family:'Arial';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-1e2d6b0a{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-1e2d6b0b{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-1e2da278{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e2df08e{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0a2{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0a3{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0ac{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0ad{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0b6{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0b7{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0b8{width:113.9pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0c0{width:68.6pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0ca{width:67.7pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2df0cb{width:74.8pt;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-1e39850c">
 <thead>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-9980cdad"><p class="cl-99809012"><span class="cl-99806b8c">4 - fold  cross-validated accuracy for regression model of charges on dataset insurance1</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-1e2df0ca"><p class="cl-1e2da278"><span class="cl-1e2d6af6">4 - fold  cross-validated accuracy for regression model of charges on dataset insurance1</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-9980cdad"><p class="cl-99809012"><span class="cl-99806b8c">model</span></p></td>
-<td class="cl-9980cdac"><p class="cl-99809012"><span class="cl-99806b8c">metric</span></p></td>
-<td class="cl-9980cda4"><p class="cl-99809012"><span class="cl-99806b8c">mean_score</span></p></td>
-<td class="cl-9980cdae"><p class="cl-99809012"><span class="cl-99806b8c">std_err</span></p></td>
+<td class="cl-1e2df0ca"><p class="cl-1e2da278"><span class="cl-1e2d6af6">model</span></p></td>
+<td class="cl-1e2df0c0"><p class="cl-1e2da278"><span class="cl-1e2d6af6">metric</span></p></td>
+<td class="cl-1e2df0b8"><p class="cl-1e2da278"><span class="cl-1e2d6af6">mean_score</span></p></td>
+<td class="cl-1e2df0cb"><p class="cl-1e2da278"><span class="cl-1e2d6af6">std_err</span></p></td>
 </tr>
 </thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-9980cd8f"><p class="cl-99809012"><span class="cl-99806b96">xgboost</span></p></td>
-<td class="cl-9980cd8e"><p class="cl-99809012"><span class="cl-99806b96">rmse</span></p></td>
-<td class="cl-9980cd84"><p class="cl-99809012"><span class="cl-99806ba0">4826.59</span></p></td>
-<td class="cl-9980cd98"><p class="cl-99809012"><span class="cl-99806ba0">92.4319</span></p></td>
+<td rowspan="2" class="cl-1e2df0a3"><p class="cl-1e2da278"><span class="cl-1e2d6b0a">xgboost</span></p></td>
+<td class="cl-1e2df0a2"><p class="cl-1e2da278"><span class="cl-1e2d6b0a">rmse</span></p></td>
+<td class="cl-1e2df08e"><p class="cl-1e2da278"><span class="cl-1e2d6b0b">4826.59</span></p></td>
+<td class="cl-1e2df0ac"><p class="cl-1e2da278"><span class="cl-1e2d6b0b">92.4319</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-9980cda2"><p class="cl-99809012"><span class="cl-99806b96">rsq</span></p></td>
-<td class="cl-9980cd99"><p class="cl-99809012"><span class="cl-99806ba0">0.84</span></p></td>
-<td class="cl-9980cda3"><p class="cl-99809012"><span class="cl-99806ba0">0.0119</span></p></td>
+<td class="cl-1e2df0b6"><p class="cl-1e2da278"><span class="cl-1e2d6b0a">rsq</span></p></td>
+<td class="cl-1e2df0ad"><p class="cl-1e2da278"><span class="cl-1e2d6b0b">0.84</span></p></td>
+<td class="cl-1e2df0b7"><p class="cl-1e2da278"><span class="cl-1e2d6b0b">0.0119</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="1ad68d01-9756-4dbe-8ac6-71d5ca281f3b"></div>
+</div></template><div class="flextable-shadow-host" id="c53fe9bd-09c6-401d-a0e7-c824cf3fe39d"></div>
 <script>
-var dest = document.getElementById("1ad68d01-9756-4dbe-8ac6-71d5ca281f3b");
-var template = document.getElementById("578efe11-f6ad-44ce-95da-c24a0421829a");
+var dest = document.getElementById("c53fe9bd-09c6-401d-a0e7-c824cf3fe39d");
+var template = document.getElementById("451e108b-d9ea-4e89-b3fc-001ea7400249");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -376,7 +376,7 @@ fantome.appendChild(templateContent);
 <h3 id="create-bins-with-tidybins">create bins with tidybins<a class="anchor" aria-label="anchor" href="#create-bins-with-tidybins"></a>
 </h3>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_cols</span><span class="op">(</span><span class="va">charges</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_bins</span></span>
 <span></span>
 <span><span class="va">insurance_bins</span></span>
@@ -401,7 +401,7 @@ fantome.appendChild(templateContent);
 “value” bins we can see that the top 20% of charges comes from the top x
 people.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_bins</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance_bins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_summary</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 14</span></span></span>
 <span><span class="co">#&gt;    column method n_bins .rank   .min  .mean   .max .count .uniq…¹ relat…²   .sum</span></span>
@@ -429,13 +429,13 @@ people.</p>
 event” so let’s ensure that “yes” is the first level using
 <code><a href="https://harrison4192.github.io/framecleaner/reference/set_fct.data.frame.html" class="external-link">framecleaner::set_fct</a></code></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">set_fct</span><span class="op">(</span><span class="va">smoker</span>, first_level <span class="op">=</span> <span class="st">"yes"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance</span></span>
 <span></span>
-<span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">create_dummies</span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, remove_first_dummy <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_dummies</span></span>
 <span></span>
-<span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="va">diagnose</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 9 × 6</span></span></span>
 <span><span class="co">#&gt;   variables        types   missing_count missing_percent unique_count unique_r…¹</span></span>
@@ -452,13 +452,13 @@ event” so let’s ensure that “yes” is the first level using
 <span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable name ¹​unique_rate</span></span></span></code></pre></div>
 <p>And create a new formula for the binary classification.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_formula</span><span class="op">(</span>target <span class="op">=</span> <span class="va">smoker</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">smoker_form</span></span>
 <span></span>
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x00000299fb816670&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x0000016aa56b3ed0&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>.
 Built in heuristic will automatically recognize this as a binary
 classification task. We can tweak some parameters to add some
@@ -466,33 +466,46 @@ regularization and increase the number of trees. Xgboost will
 automatically output feature importance on the training set, and a
 measure of accuracy tested on a validation set.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_xgboost</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">smoker_form</span>, </span>
 <span>              mtry <span class="op">=</span> <span class="fl">.5</span>,</span>
 <span>              trees <span class="op">=</span> <span class="fl">100L</span>,</span>
 <span>              loss_reduction <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>              alpha <span class="op">=</span> <span class="fl">.1</span>,</span>
-<span>              sample_size <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">smoker_xgb_classif</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 4</span></span></span>
-<span><span class="co">#&gt;   .metric  .estimator .estimate target</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy binary         0.931 smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas   binary         0.829 smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> roc_auc  binary         0.987 smoker</span></span></code></pre></div>
+<span>              sample_size <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">smoker_xgb_classif</span></span></code></pre></div>
 <p><img src="TidyConsultant_files/figure-html/unnamed-chunk-19-1.png" width="700"></p>
+<pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 15 × 3</span></span></span>
+<span><span class="co">#&gt;    .metric              .estimate .formula              </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> accuracy                 0.931 TP + TN / total       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> kap                      0.786 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> sens                     0.777 TP / actually P       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> spec                     0.973 TN / actually N       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> ppv                      0.888 TP / predicted P      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> npv                      0.941 TN / predicted N      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> mcc                      0.789 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> j_index                  0.750 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bal_accuracy             0.875 sens + spec / 2       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> detection_prevalence     0.187 predicted P / total   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> precision                0.888 PPV, 1-FDR            </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> recall                   0.777 sens, TPR             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> f_meas                   0.829 HM(ppv, sens)         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> baseline_accuracy        0.786 majority class / total</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> roc_auc                  0.987 <span style="color: #BB0000;">NA</span></span></span></code></pre>
+<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-19-2.png" width="700"></p>
 <p>Obtain predictions</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_predict</span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">insurance_dummies</span>, form <span class="op">=</span> <span class="va">smoker_form</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_fit</span></span></code></pre></div>
 <p>Analyze the probabilities using tidybins. We can find the top 20% of
 customers most likely to be smokers.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">prob_preds</span></span>
 <span></span>
-<span><span class="va">insurance_fit</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_cols</span><span class="op">(</span><span class="va">prob_preds</span>, n_bins <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_fit1</span></span>
 <span></span>
-<span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_summary</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 14</span></span></span>
 <span><span class="co">#&gt;   column      method n_bins .rank    .min   .mean    .max .count .uniq…¹ relat…²</span></span>
@@ -508,21 +521,22 @@ customers most likely to be smokers.</p>
 <p>Evaluate the training error. <code>eval_preds</code> uses both the
 probability estimates and binary estimates to calculate a variety of
 metrics.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">eval_preds</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 5</span></span></span>
-<span><span class="co">#&gt;   .metric  .estimator .estimate model              target</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy binary         0.998 smoker_xgb_classif smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas   binary         0.995 smoker_xgb_classif smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> roc_auc  binary         1.00  smoker_xgb_classif smoker</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
+<span><span class="co">#&gt;   .metric   .estimator .estimate model              target</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy  binary         0.998 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas    binary         0.995 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> precision binary         0.993 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> roc_auc   binary         1.00  smoker_xgb_classif smoker</span></span></code></pre></div>
 <p>Traditional <code>yardstick</code> confusion matrix can be created
 manually.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">class_preds</span></span>
 <span></span>
-<span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">yardstick</span><span class="fu">::</span><span class="fu"><a href="https://yardstick.tidymodels.org/reference/conf_mat.html" class="external-link">conf_mat</a></span><span class="op">(</span>truth <span class="op">=</span> <span class="va">smoker</span>, estimate <span class="op">=</span> <span class="va">class_preds</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">conf_mat_sm</span></span>
 <span></span>
 <span><span class="va">conf_mat_sm</span></span>

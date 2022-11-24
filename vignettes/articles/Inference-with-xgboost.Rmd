@@ -1,0 +1,210 @@
+---
+title: "Inference with xgboost"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cerulean
+    highlight: tango
+    df_print: paged
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = F,
+  warning = F
+)
+```
+
+This article contains a workflow in R to analyze a data set using xgboost to get insights that can help a consultant make important business decisions.
+
+```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(pacman)
+library(tidyverse); library(EIX); library(validata); p_load(TidyConsultant)
+set.seed(1)
+```
+
+# Inspect data set
+
+We will use the HR_data from the EIX package. Let's inspect the variables using the validata package.
+
+```{r}
+HR_data
+```
+
+```{r}
+HR_data %>% 
+  diagnose_category(max_distinct = 100) 
+
+```
+
+
+
+```{r}
+HR_data %>% 
+  diagnose_numeric()
+```
+# xgboost binary classification model
+
+Create dummy variables out of the Sales and Salary column. We will predict whether an employee left the company using xgboost. For this reason, set `left = 1` to the first level of the factor, so it will be treated as the event class. A high predicted indicates a label of the event class. 
+
+```{r}
+HR_data %>%
+  framecleaner::create_dummies() %>% 
+  framecleaner::set_fct(left, first_level = "1") -> hr1
+
+```
+
+Create the model using xgboost. Since the goal of this model is to run inference using trees, we want to set tree_depth to 2 to make easily-interpretable trees. 
+
+When the model is run, feature importance on the full data is printed. Also the data is split into train and test, where the accuracy is calculated on a test set. Since this is a binary classification problem, a confusion matrix is output along with binary metrics.
+
+```{r}
+hr1 %>% 
+  tidy_formula(left) -> hrf
+
+hr1 %>%
+  tidy_xgboost(hrf, tree_depth = 2L, trees = 100L, mtry = .75) -> xg1
+
+
+
+```
+
+This line will save the tree structure of the model as a table.
+
+```{r}
+xg1 %>%
+xgboost::xgb.model.dt.tree(model = .)  -> xg_trees
+
+xg_trees
+```
+
+Let's plot the first tree and interpret the table output.
+For tree=0, the root feature (node=0) is satisfaction level, which is split at value .465. 
+Is satisfaction_level < .465? If Yes, observations go left to node 1, if no, observations go right to node 2. Na values would go to node 1 if present. The quality of the split is represented by its Gain: 3123, the improvement in training loss. 
+
+```{r}
+xgboost::xgb.plot.tree(model = xg1, trees = 0)
+
+```
+
+The quality in the leaves is the prediction for observations in those leaves represented by log odds. To interpret them as probabilities, use the function below. Importantly, a log odds of 0 is a 0.5 probability. 
+
+![sigmoid curve: logit function](.\sigmoidfunction.png)
+
+# Analyze interactions
+
+In xgboost, an interaction occurs when the downstream split has a higher gain than the upstream split.
+
+```{r}
+
+# write the function collapse_tree to convert the tree output to interactions that occur in the tree.
+
+collapse_tree <- function(t1){
+
+t1 %>% group_by(Tree) %>% slice(which(Node == 0)) %>% ungroup %>%
+  select(Tree,  Root_Feature = Feature) %>%
+  bind_cols(
+
+    t1 %>% group_by(Tree) %>%  slice(which(Node == 1)) %>% ungroup %>%
+      select(Child1 = Feature)
+  ) %>%
+  bind_cols(
+
+    t1 %>% group_by(Tree) %>% slice(which(Node == 2)) %>% ungroup %>%
+      select(Child2 = Feature)
+  ) %>%
+  unite(col = "interaction1", Root_Feature, Child1, sep = ":", remove = F) %>%
+  select(-Child1) %>%
+  unite(col = "interaction2", Root_Feature, Child2, sep = ":", remove = T) %>%
+  pivot_longer(names_to = "names", cols = matches("interaction"), values_to = "interactions") %>%
+    select(-names)
+}
+
+xg_trees %>%
+  collapse_tree -> xg_trees_interactions
+
+
+
+```
+find the top interactions in the model. The interactions are rated with different importance metrics, ordered by sumGain.
+
+
+```{r}
+
+imps <- EIX::importance(xg1, hr1, option = "interactions")
+as_tibble(imps) %>% 
+  set_int(where(is.numeric))
+```
+
+We can extract all the trees that contain the specified interaction.
+
+```{r}
+
+
+imps[1,1] %>% unlist -> top_interaction
+
+
+xg_trees_interactions %>%
+  filter(str_detect(interactions, top_interaction)) %>% 
+  distinct -> top_interaction_trees
+
+top_interaction_trees
+```
+
+Then extract the first 3 (most important) trees and print them.
+
+```{r}
+top_interaction_trees$Tree %>% unique %>% head(3) -> trees_index
+
+
+xgboost::xgb.plot.tree(model = xg1, trees = trees_index)
+```
+
+We can confirm they are interactions because the child leaf in the interaction has higher split gain than the root leaf. 
+
+# Analyze single features
+
+```{r}
+
+# EIX package gives more detailed importances than the standard xgboost package
+imps_single <- EIX::importance(xg1, hr1, option = "variables") 
+
+# choose the top feature
+imps_single[1, 1] %>% unlist -> feature1
+
+# get the top 3 rees of the most important feature. Less complicated than with interactions so
+# no need to write a separate function like collapse tree
+xg_trees %>% 
+  group_by(Tree) %>%
+  slice(which(Node == 0)) %>%
+  ungroup %>% 
+  filter(Feature %>% str_detect(feature1)) %>%
+  distinct(Tree) %>% 
+  slice(1:3) %>% 
+  unlist -> top_trees
+
+xgboost::xgb.plot.tree(model = xg1, trees = top_trees)
+
+```
+By looking at the 3 most important splits for `r feature1` we can get a sense of how its splits affect the outcome.
+
+
+# shapley values
+
+```{r}
+xg1 %>% 
+  tidy_shap(hr1, form = hrf) -> hr_shaps
+
+hr_shaps
+```
+
+# Links
+
+[EIX vignette using HR_data](https://modeloriented.github.io/EIX/articles/EIX.html)
+[Introduction to boosted trees](https://xgboost.readthedocs.io/en/stable/tutorials/model.html)
+

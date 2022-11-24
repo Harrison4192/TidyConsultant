@@ -32,5 +32,6 @@ Suggests:
     knitr,
     yardstick,
     ggstance,
-    broom.mixed
+    broom.mixed,
+    EIX
 VignetteBuilder: knitr

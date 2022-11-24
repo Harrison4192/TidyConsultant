@@ -88,3 +88,8 @@ p_load(tidyverse, TidyConsultant)
 
 This is a great template to start your R script. Put any additional packages you may need inside the
 `p_load` command. 
+
+# Other good R packages for consulting
+
+[outlier detection with random forests](https://cran.r-project.org/web/packages/outliertree/vignettes/Introducing_OutlierTree.html)
+[robust version of OutlierTree](https://github.com/RafaJPSantos/bagged.outliertrees)

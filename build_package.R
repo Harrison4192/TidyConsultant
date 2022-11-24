@@ -136,5 +136,8 @@ devtools::build_site()
 devtools::check()
 devtools::preview_site()
 devtools::build_vignettes()
+devtools::load_all()
+
+usethis::use_article(name = "Inference with xgboost")
 
 pacman::p_unload("all")
