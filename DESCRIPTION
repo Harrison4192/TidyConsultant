@@ -34,5 +34,6 @@ Suggests:
     ggstance,
     broom.mixed,
     EIX,
-    tidyverse
+    tidyverse,
+    DiagrammeR
 VignetteBuilder: knitr
