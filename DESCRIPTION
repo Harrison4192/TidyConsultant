@@ -33,5 +33,6 @@ Suggests:
     yardstick,
     ggstance,
     broom.mixed,
-    EIX
+    EIX,
+    tidyverse
 VignetteBuilder: knitr
