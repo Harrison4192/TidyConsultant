@@ -1,7 +1,7 @@
 Package: TidyConsultant
 Type: Package
 Title: Tidy Consultant Universe
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Harrison",
            family = "Tietze",
@@ -12,7 +12,7 @@ Description: Loads the 5 packages in the Tidy Consultant Universe. This collecti
     data analysis, or quantitative consulting. The functions in these packages range from data cleaning, data validation, data binning, statistical modeling, and file exporting.  
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
 URL: https://harrison4192.github.io/TidyConsultant/, https://github.com/Harrison4192/TidyConsultant
 BugReports: https://github.com/Harrison4192/TidyConsultant/issues
 Imports: 
