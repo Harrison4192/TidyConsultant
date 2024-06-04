@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TidyConsultant • TidyConsultant</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">TidyConsultant</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -87,9 +87,8 @@
 
       
 
-      </header><script src="TidyConsultant_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="TidyConsultant_files/jsoneditor-5.25.6/jsoneditor.min.css" rel="stylesheet">
-<script src="TidyConsultant_files/jsoneditor-5.25.6/jsoneditor.min.js"></script><script src="TidyConsultant_files/jsonedit-binding-3.0.0/jsonedit.js"></script><link href="TidyConsultant_files/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<div class="row">
+      </header><link href="TidyConsultant_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="TidyConsultant_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="TidyConsultant_files/jsoneditor-0.18.7/jsoneditor.min.js"></script><script src="TidyConsultant_files/jsonedit-binding-4.0.0/jsonedit.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>TidyConsultant</h1>
@@ -115,8 +114,8 @@ described by their characteristics and their insurance charge.</p>
 <h2 id="analyze-data-properties-with-validata">Analyze data properties with validata<a class="anchor" aria-label="anchor" href="#analyze-data-properties-with-validata"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose</span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose.html" class="external-link">diagnose</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 6</span></span></span>
 <span><span class="co">#&gt;   variables types     missing_count missing_percent unique_count unique_rate</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -128,20 +127,19 @@ described by their characteristics and their insurance charge.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> region    character             0               0            4     0.002<span style="text-decoration: underline;">99</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> charges   numeric               0               0         <span style="text-decoration: underline;">1</span>337     0.999</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose_numeric</span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose_numeric.html" class="external-link">diagnose_numeric</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 11</span></span></span>
-<span><span class="co">#&gt;   variab…¹ zeros minus  infs    min   mean    max |x|&lt;1…² integ…³   mode mode_…⁴</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> age          0     0     0   18   3.92<span style="color: #949494;">e</span>1 6.4 <span style="color: #949494;">e</span>1   0     1   <span style="color: #949494;">e</span>+0   18   0.051<span style="text-decoration: underline;">6</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi          0     0     0   16.0 3.07<span style="color: #949494;">e</span>1 5.31<span style="color: #949494;">e</span>1   0     2.24<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>   32.3 0.009<span style="text-decoration: underline;">72</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> children   574     0     0    0   1.09<span style="color: #949494;">e</span>0 5   <span style="color: #949494;">e</span>0   0.429 1   <span style="color: #949494;">e</span>+0    0   0.429  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> charges      0     0     0 <span style="text-decoration: underline;">1</span>122.  1.33<span style="color: #949494;">e</span>4 6.38<span style="color: #949494;">e</span>4   0     7.47<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> <span style="text-decoration: underline;">1</span>640.  0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​variables, ²​`|x|&lt;1 (ratio)`,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ³​integer_ratio, ⁴​mode_ratio</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   variables zeros minus  infs    min   mean    max `|x|&lt;1 (ratio)` integer_ratio</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> age           0     0     0   18   3.92<span style="color: #949494;">e</span>1 6.4 <span style="color: #949494;">e</span>1           0          1       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi           0     0     0   16.0 3.07<span style="color: #949494;">e</span>1 5.31<span style="color: #949494;">e</span>1           0          0.022<span style="text-decoration: underline;">4</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> children    574     0     0    0   1.09<span style="color: #949494;">e</span>0 5   <span style="color: #949494;">e</span>0           0.429      1       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> charges       0     0     0 <span style="text-decoration: underline;">1</span>122.  1.33<span style="color: #949494;">e</span>4 6.38<span style="color: #949494;">e</span>4           0          0.000<span style="text-decoration: underline;">747</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: mode &lt;dbl&gt;, mode_ratio &lt;dbl&gt;</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">diagnose_category</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>,  max_distinct <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/diagnose_category.html" class="external-link">diagnose_category</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,  max_distinct <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>width <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 4</span></span></span>
 <span><span class="co">#&gt;    column   level         n  ratio</span></span>
@@ -164,17 +162,17 @@ described by their characteristics and their insurance charge.</p>
 by 5 characteristics. The charges column is also unique, but simply
 because it is a high-precision double.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">determine_distinct</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://harrison4192.github.io/validata/reference/determine_distinct.html" class="external-link">determine_distinct</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; database has 1 duplicate rows, and will eliminate them</span></span></code></pre></div>
-<div id="htmlwidget-d80fbd604527106e8c14" style="width:700px;height:432.632880098888px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d80fbd604527106e8c14">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div class="jsonedit html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"data":{"LEVEL 5":"age, bmi, children, sex, smoker","LEVEL 1":["charges"]},"options":{"mode":"tree","modes":["text","tree","table"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level2">
 <h2 id="analyze-data-relationships-with-autostats">Analyze data relationships with autostats<a class="anchor" aria-label="anchor" href="#analyze-data-relationships-with-autostats"></a>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_cor</span><span class="op">(</span>sparse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">cors</span></span>
 <span></span>
 <span><span class="va">cors</span></span>
@@ -190,80 +188,79 @@ because it is a high-precision double.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> region_northwest bmi        -<span style="color: #BB0000;">0.136</span>  5.94<span style="color: #949494;">e</span><span style="color: #BB0000;">-  7</span> ***          pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> bmi              age         0.109  6.19<span style="color: #949494;">e</span><span style="color: #BB0000;">-  5</span> ***          pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> smoker_no        sex_female  0.076<span style="text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> smoker_no        sex_male   -<span style="color: #BB0000;">0.076</span><span style="color: #BB0000; text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> smoker_yes       sex_female -<span style="color: #BB0000;">0.076</span><span style="color: #BB0000; text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> smoker_yes       sex_male    0.076<span style="text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> smoker_yes       sex_female -<span style="color: #BB0000;">0.076</span><span style="color: #BB0000; text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> smoker_yes       sex_male    0.076<span style="text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> smoker_no        sex_male   -<span style="color: #BB0000;">0.076</span><span style="color: #BB0000; text-decoration: underline;">2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> region_southeast charges     0.074<span style="text-decoration: underline;">0</span> 6.78<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **           pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> region_southeast smoker_no  -<span style="color: #BB0000;">0.068</span><span style="color: #BB0000; text-decoration: underline;">5</span> 1.22<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> region_southeast smoker_yes  0.068<span style="text-decoration: underline;">5</span> 1.22<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span> charges          children    0.068<span style="text-decoration: underline;">0</span> 1.29<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> sex_female       charges    -<span style="color: #BB0000;">0.057</span><span style="color: #BB0000; text-decoration: underline;">3</span> 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> sex_male         charges     0.057<span style="text-decoration: underline;">3</span> 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> sex_female       bmi        -<span style="color: #BB0000;">0.046</span><span style="color: #BB0000; text-decoration: underline;">4</span> 9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> .            pearson</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span> sex_male         bmi         0.046<span style="text-decoration: underline;">4</span> 9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> .            pearson</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> sex_male         charges     0.057<span style="text-decoration: underline;">3</span> 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> sex_female       charges    -<span style="color: #BB0000;">0.057</span><span style="color: #BB0000; text-decoration: underline;">3</span> 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *            pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> sex_male         bmi         0.046<span style="text-decoration: underline;">4</span> 9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> .            pearson</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span> sex_female       bmi        -<span style="color: #BB0000;">0.046</span><span style="color: #BB0000; text-decoration: underline;">4</span> 9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> .            pearson</span></span></code></pre></div>
 <p>Analyze the relationship between categorical and continuous
 variables</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas1</span></span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas1</span></span>
 <span></span>
-<span><span class="va">anovas1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">anovas1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 32 × 12</span></span></span>
-<span><span class="co">#&gt;    target   predictor level     estimate targe…¹     n std.e…² level_p…³ level…⁴</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> age      region    (Interce…  3.93<span style="color: #949494;">e</span>+1  3.93<span style="color: #949494;">e</span>1   324 7.81<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 4.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-310</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> age      region    northwest -<span style="color: #BB0000;">7.16</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  3.92<span style="color: #949494;">e</span>1   325 1.10<span style="color: #949494;">e</span>+0 9.48<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> age      region    southeast -<span style="color: #BB0000;">3.29</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  3.89<span style="color: #949494;">e</span>1   364 1.07<span style="color: #949494;">e</span>+0 7.59<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> age      region    southwest  1.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  3.95<span style="color: #949494;">e</span>1   325 1.10<span style="color: #949494;">e</span>+0 8.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> age      sex       (Interce…  3.95<span style="color: #949494;">e</span>+1  3.95<span style="color: #949494;">e</span>1   662 5.46<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 0   <span style="color: #949494;"> </span>     <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> age      sex       male      -<span style="color: #BB0000;">5.86</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  3.89<span style="color: #949494;">e</span>1   676 7.68<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 4.46<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> age      smoker    (Interce…  3.94<span style="color: #949494;">e</span>+1  3.94<span style="color: #949494;">e</span>1  <span style="text-decoration: underline;">1</span>064 4.31<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 0   <span style="color: #949494;"> </span>     <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> age      smoker    yes       -<span style="color: #BB0000;">8.71</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  3.85<span style="color: #949494;">e</span>1   274 9.52<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 3.60<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bmi      region    (Interce…  2.92<span style="color: #949494;">e</span>+1  2.92<span style="color: #949494;">e</span>1   324 3.25<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 0   <span style="color: #949494;"> </span>     <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> bmi      region    northwest  2.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.92<span style="color: #949494;">e</span>1   325 4.59<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 9.54<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> bmi      region    southeast  4.18<span style="color: #949494;">e</span>+0  3.34<span style="color: #949494;">e</span>1   364 4.47<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 3.28<span style="color: #949494;">e</span><span style="color: #BB0000;">- 20</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> bmi      region    southwest  1.42<span style="color: #949494;">e</span>+0  3.06<span style="color: #949494;">e</span>1   325 4.59<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 1.99<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> <span style="color: #949494;">"</span>**<span style="color: #949494;">"</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> bmi      sex       (Interce…  3.04<span style="color: #949494;">e</span>+1  3.04<span style="color: #949494;">e</span>1   662 2.37<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 0   <span style="color: #949494;"> </span>     <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> bmi      sex       male       5.65<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  3.09<span style="color: #949494;">e</span>1   676 3.33<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> <span style="color: #949494;">"</span>.<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> bmi      smoker    (Interce…  3.07<span style="color: #949494;">e</span>+1  3.07<span style="color: #949494;">e</span>1  <span style="text-decoration: underline;">1</span>064 1.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 0   <span style="color: #949494;"> </span>     <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span> bmi      smoker    yes        5.67<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  3.07<span style="color: #949494;">e</span>1   274 4.13<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 8.91<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> charges  region    (Interce…  1.34<span style="color: #949494;">e</span>+4  1.34<span style="color: #949494;">e</span>4   324 6.71<span style="color: #949494;">e</span>+2 7.67<span style="color: #949494;">e</span><span style="color: #BB0000;">- 78</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> charges  region    northwest -<span style="color: #BB0000;">9.89</span><span style="color: #949494;">e</span>+2  1.24<span style="color: #949494;">e</span>4   325 9.49<span style="color: #949494;">e</span>+2 2.97<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> charges  region    southeast  1.33<span style="color: #949494;">e</span>+3  1.47<span style="color: #949494;">e</span>4   364 9.23<span style="color: #949494;">e</span>+2 1.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span> charges  region    southwest -<span style="color: #BB0000;">1.06</span><span style="color: #949494;">e</span>+3  1.23<span style="color: #949494;">e</span>4   325 9.49<span style="color: #949494;">e</span>+2 2.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">21</span> charges  sex       (Interce…  1.26<span style="color: #949494;">e</span>+4  1.26<span style="color: #949494;">e</span>4   662 4.70<span style="color: #949494;">e</span>+2 1.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-126</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">22</span> charges  sex       male       1.39<span style="color: #949494;">e</span>+3  1.40<span style="color: #949494;">e</span>4   676 6.61<span style="color: #949494;">e</span>+2 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> <span style="color: #949494;">"</span>*<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">23</span> charges  smoker    (Interce…  8.43<span style="color: #949494;">e</span>+3  8.43<span style="color: #949494;">e</span>3  <span style="text-decoration: underline;">1</span>064 2.29<span style="color: #949494;">e</span>+2 1.58<span style="color: #949494;">e</span><span style="color: #BB0000;">-205</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">24</span> charges  smoker    yes        2.36<span style="color: #949494;">e</span>+4  3.21<span style="color: #949494;">e</span>4   274 5.06<span style="color: #949494;">e</span>+2 8.27<span style="color: #949494;">e</span><span style="color: #BB0000;">-283</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">25</span> children region    (Interce…  1.05<span style="color: #949494;">e</span>+0  1.05<span style="color: #949494;">e</span>0   324 6.70<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 1.26<span style="color: #949494;">e</span><span style="color: #BB0000;">- 50</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">26</span> children region    northwest  1.01<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>  1.15<span style="color: #949494;">e</span>0   325 9.47<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 2.84<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">27</span> children region    southeast  3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  1.05<span style="color: #949494;">e</span>0   364 9.21<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 9.73<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">28</span> children region    southwest  9.52<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.14<span style="color: #949494;">e</span>0   325 9.47<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">29</span> children sex       (Interce…  1.07<span style="color: #949494;">e</span>+0  1.07<span style="color: #949494;">e</span>0   662 4.69<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 2.66<span style="color: #949494;">e</span><span style="color: #BB0000;">- 98</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">30</span> children sex       male       4.14<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.12<span style="color: #949494;">e</span>0   676 6.59<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">31</span> children smoker    (Interce…  1.09<span style="color: #949494;">e</span>+0  1.09<span style="color: #949494;">e</span>0  <span style="text-decoration: underline;">1</span>064 3.70<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 1.25<span style="color: #949494;">e</span><span style="color: #BB0000;">-147</span> <span style="color: #949494;">"</span>***<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">32</span> children smoker    yes        2.29<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.11<span style="color: #949494;">e</span>0   274 8.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 7.79<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span> <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 3 more variables: predictor_p.value &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   predictor_significance &lt;chr&gt;, conclusion &lt;chr&gt;, and abbreviated variable</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   names ¹​target_mean, ²​std.error, ³​level_p.value, ⁴​level_significance</span></span></span></code></pre></div>
+<span><span class="co">#&gt;    target   predictor level   estimate target_mean     n std.error level_p.value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> age      region    (Inter…  3.93<span style="color: #949494;">e</span>+1       39.3    324    0.781      4.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-310</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> age      region    northw… -<span style="color: #BB0000;">7.16</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>       39.2    325    1.10       9.48<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> age      region    southe… -<span style="color: #BB0000;">3.29</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>       38.9    364    1.07       7.59<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> age      region    southw…  1.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>       39.5    325    1.10       8.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> age      sex       (Inter…  3.95<span style="color: #949494;">e</span>+1       39.5    662    0.546      0   <span style="color: #949494;"> </span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> age      sex       male    -<span style="color: #BB0000;">5.86</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>       38.9    676    0.768      4.46<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> age      smoker    (Inter…  3.94<span style="color: #949494;">e</span>+1       39.4   <span style="text-decoration: underline;">1</span>064    0.431      0   <span style="color: #949494;"> </span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> age      smoker    yes     -<span style="color: #BB0000;">8.71</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>       38.5    274    0.952      3.60<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bmi      region    (Inter…  2.92<span style="color: #949494;">e</span>+1       29.2    324    0.325      0   <span style="color: #949494;"> </span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> bmi      region    northw…  2.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>       29.2    325    0.459      9.54<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> bmi      region    southe…  4.18<span style="color: #949494;">e</span>+0       33.4    364    0.447      3.28<span style="color: #949494;">e</span><span style="color: #BB0000;">- 20</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> bmi      region    southw…  1.42<span style="color: #949494;">e</span>+0       30.6    325    0.459      1.99<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> bmi      sex       (Inter…  3.04<span style="color: #949494;">e</span>+1       30.4    662    0.237      0   <span style="color: #949494;"> </span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> bmi      sex       male     5.65<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>       30.9    676    0.333      9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> bmi      smoker    (Inter…  3.07<span style="color: #949494;">e</span>+1       30.7   <span style="text-decoration: underline;">1</span>064    0.187      0   <span style="color: #949494;"> </span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span> bmi      smoker    yes      5.67<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>       30.7    274    0.413      8.91<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> charges  region    (Inter…  1.34<span style="color: #949494;">e</span>+4    <span style="text-decoration: underline;">13</span>406.     324  671.         7.67<span style="color: #949494;">e</span><span style="color: #BB0000;">- 78</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> charges  region    northw… -<span style="color: #BB0000;">9.89</span><span style="color: #949494;">e</span>+2    <span style="text-decoration: underline;">12</span>418.     325  949.         2.97<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> charges  region    southe…  1.33<span style="color: #949494;">e</span>+3    <span style="text-decoration: underline;">14</span>735.     364  923.         1.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span> charges  region    southw… -<span style="color: #BB0000;">1.06</span><span style="color: #949494;">e</span>+3    <span style="text-decoration: underline;">12</span>347.     325  949.         2.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">21</span> charges  sex       (Inter…  1.26<span style="color: #949494;">e</span>+4    <span style="text-decoration: underline;">12</span>570.     662  470.         1.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-126</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">22</span> charges  sex       male     1.39<span style="color: #949494;">e</span>+3    <span style="text-decoration: underline;">13</span>957.     676  661.         3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">23</span> charges  smoker    (Inter…  8.43<span style="color: #949494;">e</span>+3     <span style="text-decoration: underline;">8</span>434.    <span style="text-decoration: underline;">1</span>064  229.         1.58<span style="color: #949494;">e</span><span style="color: #BB0000;">-205</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">24</span> charges  smoker    yes      2.36<span style="color: #949494;">e</span>+4    <span style="text-decoration: underline;">32</span>050.     274  506.         8.27<span style="color: #949494;">e</span><span style="color: #BB0000;">-283</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">25</span> children region    (Inter…  1.05<span style="color: #949494;">e</span>+0        1.05   324    0.067<span style="text-decoration: underline;">0</span>     1.26<span style="color: #949494;">e</span><span style="color: #BB0000;">- 50</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">26</span> children region    northw…  1.01<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>        1.15   325    0.094<span style="text-decoration: underline;">7</span>     2.84<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">27</span> children region    southe…  3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>        1.05   364    0.092<span style="text-decoration: underline;">1</span>     9.73<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">28</span> children region    southw…  9.52<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>        1.14   325    0.094<span style="text-decoration: underline;">7</span>     3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">29</span> children sex       (Inter…  1.07<span style="color: #949494;">e</span>+0        1.07   662    0.046<span style="text-decoration: underline;">9</span>     2.66<span style="color: #949494;">e</span><span style="color: #BB0000;">- 98</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">30</span> children sex       male     4.14<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>        1.12   676    0.065<span style="text-decoration: underline;">9</span>     5.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">31</span> children smoker    (Inter…  1.09<span style="color: #949494;">e</span>+0        1.09  <span style="text-decoration: underline;">1</span>064    0.037<span style="text-decoration: underline;">0</span>     1.25<span style="color: #949494;">e</span><span style="color: #BB0000;">-147</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">32</span> children smoker    yes      2.29<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>        1.11   274    0.081<span style="text-decoration: underline;">7</span>     7.79<span style="color: #949494;">e</span><span style="color: #BB0000;">-  1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: level_significance &lt;chr&gt;, predictor_p.value &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   predictor_significance &lt;chr&gt;, conclusion &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Use the sparse option to show only the most significant effects</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span>, sparse <span class="op">=</span> <span class="cn">T</span>, pval_thresh <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas2</span></span>
+<span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">auto_anova</span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="st">"first_level"</span>, sparse <span class="op">=</span> <span class="cn">T</span>, pval_thresh <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">anovas2</span></span>
 <span></span>
-<span><span class="va">anovas2</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">anovas2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 8</span></span></span>
-<span><span class="co">#&gt;   target  predictor level      estimate target_mean     n level_p.value level_…¹</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> bmi     region    southeast     4.18         33.4   364     3.28<span style="color: #949494;">e</span><span style="color: #BB0000;">- 20</span> ***     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi     region    southwest     1.42         30.6   325     1.99<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span> **      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> bmi     sex       male          0.565        30.9   676     9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> .       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> charges sex       male       <span style="text-decoration: underline;">1</span>387.        <span style="text-decoration: underline;">13</span>957.    676     3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span> *       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> charges smoker    yes       <span style="text-decoration: underline;">23</span>616.        <span style="text-decoration: underline;">32</span>050.    274     8.27<span style="color: #949494;">e</span><span style="color: #BB0000;">-283</span> ***     </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable name ¹​level_significance</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   target  predictor level      estimate target_mean     n level_p.value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> bmi     region    southeast     4.18         33.4   364     3.28<span style="color: #949494;">e</span><span style="color: #BB0000;">- 20</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi     region    southwest     1.42         30.6   325     1.99<span style="color: #949494;">e</span><span style="color: #BB0000;">-  3</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> bmi     sex       male          0.565        30.9   676     9.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> charges sex       male       <span style="text-decoration: underline;">1</span>387.        <span style="text-decoration: underline;">13</span>957.    676     3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-  2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> charges smoker    yes       <span style="text-decoration: underline;">23</span>616.        <span style="text-decoration: underline;">32</span>050.    274     8.27<span style="color: #949494;">e</span><span style="color: #BB0000;">-283</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: level_significance &lt;chr&gt;</span></span></span></code></pre></div>
 <p>From this we can conclude that smokers and males incur higher
 insurance charges. It may be beneficial to explore some interaction
 effects, considering that BMI’s effect on charges will be
@@ -272,146 +269,69 @@ sex-dependent.</p>
 <h3 id="create-dummies-out-of-categorical-variables">create dummies out of categorical variables<a class="anchor" aria-label="anchor" href="#create-dummies-out-of-categorical-variables"></a>
 </h3>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">create_dummies</span><span class="op">(</span>remove_most_frequent_dummy <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="explore-model-based-variable-contributions">explore model-based variable contributions<a class="anchor" aria-label="anchor" href="#explore-model-based-variable-contributions"></a>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_formula</span><span class="op">(</span>target <span class="op">=</span> <span class="va">charges</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">charges_form</span></span>
 <span></span>
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fb2222665d0&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x12fad9b20&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<p><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="TidyConsultant_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">auto_model_accuracy</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
-<template id="252422a6-7515-4032-98ef-33f7a8f0c077"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
-<div class="tabwid">
-<style>.cl-e57429bc{}.cl-e55c4180{font-family:'Helvetica';font-size:16pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(255, 255, 255, 1.00);background-color:transparent;}.cl-e55c419e{font-family:'Helvetica';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(115, 115, 115, 1.00);background-color:transparent;}.cl-e55c419f{font-family:'Helvetica';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(164, 206, 229, 1.00);background-color:transparent;}.cl-e566661a{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e56689b0{width:0.94in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689ba{width:0.952in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689bb{width:1.582in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689bc{width:1.039in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 3pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689c4{width:0.94in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1pt solid rgba(164, 206, 229, 1.00);border-left: 3pt solid rgba(135, 206, 235, 1.00);border-right: 1pt solid rgba(164, 206, 229, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689ce{width:0.952in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689cf{width:1.582in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689d8{width:1.039in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 1.5pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689d9{width:0.952in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689e2{width:1.582in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 1.5pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e56689e3{width:1.039in;background-color:rgba(0, 0, 0, 1.00);vertical-align: middle;border-bottom: 3pt solid rgba(135, 206, 235, 1.00);border-top: 1.5pt solid rgba(135, 206, 235, 1.00);border-left: 1.5pt solid rgba(135, 206, 235, 1.00);border-right: 3pt solid rgba(135, 206, 235, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-e57429bc">
-<thead>
-<tr style="overflow-wrap:break-word;"><th colspan="4" class="cl-e56689b0"><p class="cl-e566661a"><span class="cl-e55c4180">4 - fold  cross-validated accuracy for regression model of charges on dataset Table</span></p></th></tr>
-<tr style="overflow-wrap:break-word;">
-<th class="cl-e56689b0"><p class="cl-e566661a"><span class="cl-e55c4180">model</span></p></th>
-<th class="cl-e56689ba"><p class="cl-e566661a"><span class="cl-e55c4180">metric</span></p></th>
-<th class="cl-e56689bb"><p class="cl-e566661a"><span class="cl-e55c4180">mean_score</span></p></th>
-<th class="cl-e56689bc"><p class="cl-e566661a"><span class="cl-e55c4180">std_err</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-e56689c4"><p class="cl-e566661a"><span class="cl-e55c419e">xgboost</span></p></td>
-<td class="cl-e56689ce"><p class="cl-e566661a"><span class="cl-e55c419e">rmse</span></p></td>
-<td class="cl-e56689cf"><p class="cl-e566661a"><span class="cl-e55c419f">4826.59</span></p></td>
-<td class="cl-e56689d8"><p class="cl-e566661a"><span class="cl-e55c419f">92.4319</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-e56689d9"><p class="cl-e566661a"><span class="cl-e55c419e">rsq</span></p></td>
-<td class="cl-e56689e2"><p class="cl-e566661a"><span class="cl-e55c419f">0.84</span></p></td>
-<td class="cl-e56689e3"><p class="cl-e566661a"><span class="cl-e55c419f">0.0119</span></p></td>
-</tr>
-</tbody>
-</table>
-</div></template><div class="flextable-shadow-host" id="9da63fd1-cf42-4e1f-975b-1c4e8fc55aa8"></div>
-<script>
-var dest = document.getElementById("9da63fd1-cf42-4e1f-975b-1c4e8fc55aa8");
-var template = document.getElementById("252422a6-7515-4032-98ef-33f7a8f0c077");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
 </div>
 <div class="section level3">
 <h3 id="create-bins-with-tidybins">create bins with tidybins<a class="anchor" aria-label="anchor" href="#create-bins-with-tidybins"></a>
 </h3>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_cols</span><span class="op">(</span><span class="va">charges</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_bins</span></span>
 <span></span>
 <span><span class="va">insurance_bins</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,338 × 10</span></span></span>
-<span><span class="co">#&gt;    charges…¹   age   bmi child…² charges sex_f…³ smoke…⁴ regio…⁵ regio…⁶ regio…⁷</span></span>
-<span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>         8    19  27.9       0  <span style="text-decoration: underline;">16</span>885.       1       1       0       0       1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>         1    18  33.8       1   <span style="text-decoration: underline;">1</span>726.       0       0       0       0       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>         3    28  33         3   <span style="text-decoration: underline;">4</span>449.       0       0       0       0       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>         9    33  22.7       0  <span style="text-decoration: underline;">21</span>984.       0       0       0       1       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>         2    32  28.9       0   <span style="text-decoration: underline;">3</span>867.       0       0       0       1       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>         2    31  25.7       0   <span style="text-decoration: underline;">3</span>757.       1       0       0       0       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>         5    46  33.4       1   <span style="text-decoration: underline;">8</span>241.       1       0       0       0       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>         4    37  27.7       3   <span style="text-decoration: underline;">7</span>282.       1       0       0       1       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>         4    37  29.8       2   <span style="text-decoration: underline;">6</span>406.       0       0       1       0       0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>         9    60  25.8       0  <span style="text-decoration: underline;">28</span>923.       1       0       0       1       0</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 1,328 more rows, and abbreviated variable names ¹​charges_fr10,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ²​children, ³​sex_female, ⁴​smoker_yes, ⁵​region_northeast, ⁶​region_northwest,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ⁷​region_southwest</span></span></span></code></pre></div>
+<span><span class="co">#&gt;    charges_fr10   age   bmi children charges sex_female smoker_yes</span></span>
+<span><span class="co">#&gt;           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>            8    19  27.9        0  <span style="text-decoration: underline;">16</span>885.          1          1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>            1    18  33.8        1   <span style="text-decoration: underline;">1</span>726.          0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>            3    28  33          3   <span style="text-decoration: underline;">4</span>449.          0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>            9    33  22.7        0  <span style="text-decoration: underline;">21</span>984.          0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>            2    32  28.9        0   <span style="text-decoration: underline;">3</span>867.          0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>            2    31  25.7        0   <span style="text-decoration: underline;">3</span>757.          1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>            5    46  33.4        1   <span style="text-decoration: underline;">8</span>241.          1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>            4    37  27.7        3   <span style="text-decoration: underline;">7</span>282.          1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>            4    37  29.8        2   <span style="text-decoration: underline;">6</span>406.          0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>            9    60  25.8        0  <span style="text-decoration: underline;">28</span>923.          1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1,328 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: region_northeast &lt;int&gt;, region_northwest &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   region_southwest &lt;int&gt;</span></span></span></code></pre></div>
 <p>Here we can see a summary of the binned cols. The with quintile
 “value” bins we can see that the top 20% of charges comes from the top x
 people.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_bins</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance_bins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_summary</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 14</span></span></span>
-<span><span class="co">#&gt;    column method n_bins .rank   .min  .mean   .max .count .uniq…¹ relat…²   .sum</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> charg… equal…     10    10 <span style="text-decoration: underline;">34</span>806. <span style="text-decoration: underline;">42</span>267. <span style="text-decoration: underline;">63</span>770.    136     136  100    5.75<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> charg… equal…     10     9 <span style="text-decoration: underline;">20</span>421. <span style="text-decoration: underline;">26</span>063. <span style="text-decoration: underline;">34</span>780.    130     130   61.7  3.39<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> charg… equal…     10     8 <span style="text-decoration: underline;">13</span>823. <span style="text-decoration: underline;">16</span>757. <span style="text-decoration: underline;">20</span>297.    135     135   39.6  2.26<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> charg… equal…     10     7 <span style="text-decoration: underline;">11</span>412. <span style="text-decoration: underline;">12</span>464. <span style="text-decoration: underline;">13</span>770.    134     134   29.5  1.67<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> charg… equal…     10     6  <span style="text-decoration: underline;">9</span>386. <span style="text-decoration: underline;">10</span>416. <span style="text-decoration: underline;">11</span>397.    134     134   24.6  1.40<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> charg… equal…     10     5  <span style="text-decoration: underline;">7</span>372.  <span style="text-decoration: underline;">8</span>386.  <span style="text-decoration: underline;">9</span>378.    134     134   19.8  1.12<span style="color: #949494;">e</span>6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> charg… equal…     10     4  <span style="text-decoration: underline;">5</span>484.  <span style="text-decoration: underline;">6</span>521.  <span style="text-decoration: underline;">7</span>358.    134     134   15.4  8.74<span style="color: #949494;">e</span>5</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> charg… equal…     10     3  <span style="text-decoration: underline;">3</span>994.  <span style="text-decoration: underline;">4</span>752.  <span style="text-decoration: underline;">5</span>478.    133     133   11.2  6.32<span style="color: #949494;">e</span>5</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> charg… equal…     10     2  <span style="text-decoration: underline;">2</span>353.  <span style="text-decoration: underline;">3</span>140.  <span style="text-decoration: underline;">3</span>990.    134     134    7.43 4.21<span style="color: #949494;">e</span>5</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> charg… equal…     10     1  <span style="text-decoration: underline;">1</span>122.  <span style="text-decoration: underline;">1</span>797.  <span style="text-decoration: underline;">2</span>332.    134     133    4.25 2.41<span style="color: #949494;">e</span>5</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 3 more variables: .med &lt;dbl&gt;, .sd &lt;dbl&gt;, width &lt;dbl&gt;, and abbreviated</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​.uniques, ²​relative_value</span></span></span></code></pre></div>
+<span><span class="co">#&gt;    column  method     n_bins .rank   .min  .mean   .max .count .uniques</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> charges equal freq     10    10 <span style="text-decoration: underline;">34</span>806. <span style="text-decoration: underline;">42</span>267. <span style="text-decoration: underline;">63</span>770.    136      136</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> charges equal freq     10     9 <span style="text-decoration: underline;">20</span>421. <span style="text-decoration: underline;">26</span>063. <span style="text-decoration: underline;">34</span>780.    130      130</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> charges equal freq     10     8 <span style="text-decoration: underline;">13</span>823. <span style="text-decoration: underline;">16</span>757. <span style="text-decoration: underline;">20</span>297.    135      135</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> charges equal freq     10     7 <span style="text-decoration: underline;">11</span>412. <span style="text-decoration: underline;">12</span>464. <span style="text-decoration: underline;">13</span>770.    134      134</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> charges equal freq     10     6  <span style="text-decoration: underline;">9</span>386. <span style="text-decoration: underline;">10</span>416. <span style="text-decoration: underline;">11</span>397.    134      134</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> charges equal freq     10     5  <span style="text-decoration: underline;">7</span>372.  <span style="text-decoration: underline;">8</span>386.  <span style="text-decoration: underline;">9</span>378.    134      134</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> charges equal freq     10     4  <span style="text-decoration: underline;">5</span>484.  <span style="text-decoration: underline;">6</span>521.  <span style="text-decoration: underline;">7</span>358.    134      134</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> charges equal freq     10     3  <span style="text-decoration: underline;">3</span>994.  <span style="text-decoration: underline;">4</span>752.  <span style="text-decoration: underline;">5</span>478.    133      133</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> charges equal freq     10     2  <span style="text-decoration: underline;">2</span>353.  <span style="text-decoration: underline;">3</span>140.  <span style="text-decoration: underline;">3</span>990.    134      134</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> charges equal freq     10     1  <span style="text-decoration: underline;">1</span>122.  <span style="text-decoration: underline;">1</span>797.  <span style="text-decoration: underline;">2</span>332.    134      133</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: relative_value &lt;dbl&gt;, .sum &lt;dbl&gt;, .med &lt;dbl&gt;, .sd &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   width &lt;dbl&gt;</span></span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -421,45 +341,44 @@ people.</p>
 <p>Xgboost considers the first level of a factor to be the “positive
 event” so let’s ensure that “yes” is the first level using
 <code><a href="https://harrison4192.github.io/framecleaner/reference/set_fct.data.frame.html" class="external-link">framecleaner::set_fct</a></code></p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">set_fct</span><span class="op">(</span><span class="va">smoker</span>, first_level <span class="op">=</span> <span class="st">"yes"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance</span></span>
 <span></span>
-<span><span class="va">insurance</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">create_dummies</span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, remove_first_dummy <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_dummies</span></span>
+<span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">create_dummies</span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html" class="external-link">where</a></span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, remove_first_dummy <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_dummies</span></span>
 <span></span>
-<span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="va">diagnose</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 9 × 6</span></span></span>
-<span><span class="co">#&gt;   variables        types   missing_count missing_percent unique_count unique_r…¹</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> age              integer             0               0           47    0.035<span style="text-decoration: underline;">1</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi              numeric             0               0          548    0.410  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> children         integer             0               0            6    0.004<span style="text-decoration: underline;">48</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> smoker           factor              0               0            2    0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> charges          numeric             0               0         <span style="text-decoration: underline;">1</span>337    0.999  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> sex_male         integer             0               0            2    0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> region_northwest integer             0               0            2    0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> region_southeast integer             0               0            2    0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">9</span> region_southwest integer             0               0            2    0.001<span style="text-decoration: underline;">49</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable name ¹​unique_rate</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   variables        types  missing_count missing_percent unique_count unique_rate</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> age              integ…             0               0           47     0.035<span style="text-decoration: underline;">1</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> bmi              numer…             0               0          548     0.410  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> children         integ…             0               0            6     0.004<span style="text-decoration: underline;">48</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> smoker           factor             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> charges          numer…             0               0         <span style="text-decoration: underline;">1</span>337     0.999  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> sex_male         integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> region_northwest integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> region_southeast integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">9</span> region_southwest integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span></code></pre></div>
 <p>And create a new formula for the binary classification.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_formula</span><span class="op">(</span>target <span class="op">=</span> <span class="va">smoker</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">smoker_form</span></span>
 <span></span>
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x7fb2236c5858&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x128f8f990&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>.
 Built in heuristic will automatically recognize this as a binary
 classification task. We can tweak some parameters to add some
 regularization and increase the number of trees. Xgboost will
 automatically output feature importance on the training set, and a
 measure of accuracy tested on a validation set.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_xgboost</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">smoker_form</span>, </span>
 <span>              mtry <span class="op">=</span> <span class="fl">.5</span>,</span>
 <span>              trees <span class="op">=</span> <span class="fl">100L</span>,</span>
@@ -470,72 +389,72 @@ measure of accuracy tested on a validation set.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 15 × 3</span></span></span>
 <span><span class="co">#&gt;    .metric              .estimate .formula              </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> accuracy                 0.959 TP + TN / total       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> kap                      0.877 <span style="color: #BB0000;">NA</span>                    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> sens                     0.918 TP / actually P       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> spec                     0.970 TN / actually N       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> ppv                      0.888 TP / predicted P      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> npv                      0.978 TN / predicted N      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> mcc                      0.877 <span style="color: #BB0000;">NA</span>                    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> j_index                  0.888 <span style="color: #BB0000;">NA</span>                    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bal_accuracy             0.944 sens + spec / 2       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> detection_prevalence     0.214 predicted P / total   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> precision                0.888 PPV, 1-FDR            </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> recall                   0.918 sens, TPR             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> f_meas                   0.903 HM(ppv, sens)         </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> baseline_accuracy        0.793 majority class / total</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> accuracy                 0.937 TP + TN / total       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> kap                      0.804 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> sens                     0.833 TP / actually P       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> spec                     0.964 TN / actually N       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> ppv                      0.854 TP / predicted P      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> npv                      0.958 TN / predicted N      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> mcc                      0.804 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> j_index                  0.796 <span style="color: #BB0000;">NA</span>                    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bal_accuracy             0.898 sens + spec / 2       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> detection_prevalence     0.197 predicted P / total   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> precision                0.854 PPV, 1-FDR            </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> recall                   0.833 sens, TPR             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> f_meas                   0.843 HM(ppv, sens)         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> baseline_accuracy        0.798 majority class / total</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> roc_auc                  0.984 <span style="color: #BB0000;">NA</span></span></span></code></pre>
 <p><img src="TidyConsultant_files/figure-html/unnamed-chunk-19-2.png" width="700"></p>
 <p>Obtain predictions</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_predict</span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">insurance_dummies</span>, form <span class="op">=</span> <span class="va">smoker_form</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_fit</span></span></code></pre></div>
 <p>Analyze the probabilities using tidybins. We can find the top 20% of
 customers most likely to be smokers.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">prob_preds</span></span>
 <span></span>
-<span><span class="va">insurance_fit</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_cols</span><span class="op">(</span><span class="va">prob_preds</span>, n_bins <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_fit1</span></span>
 <span></span>
-<span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_summary</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 14</span></span></span>
-<span><span class="co">#&gt;   column      method n_bins .rank    .min   .mean    .max .count .uniq…¹ relat…²</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> smoker_pre… equal…      5     5 7.32<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 9.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 9.99<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>    268     251 9.63<span style="color: #949494;">e</span>+1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> smoker_pre… equal…      5     4 1.30<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 6.06<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 7.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>    267     251 6.06<span style="color: #949494;">e</span>+0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> smoker_pre… equal…      5     3 3.13<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> 7.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> 1.28<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>    268     241 7.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> smoker_pre… equal…      5     2 1.33<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> 2.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> 3.07<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span>    267     165 2.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> smoker_pre… equal…      5     1 3.69<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> 9.34<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> 1.32<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span>    268     168 9.34<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 4 more variables: .sum &lt;dbl&gt;, .med &lt;dbl&gt;, .sd &lt;dbl&gt;, width &lt;dbl&gt;, and</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​.uniques, ²​relative_value</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   column             method n_bins .rank    .min   .mean    .max .count .uniques</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> smoker_preds_prob… equal…      5     5 0.654   0.918   0.989      268      267</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> smoker_preds_prob… equal…      5     4 0.007<span style="text-decoration: underline;">67</span> 0.100   0.646      267      254</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> smoker_preds_prob… equal…      5     3 0.006<span style="text-decoration: underline;">03</span> 0.006<span style="text-decoration: underline;">69</span> 0.007<span style="text-decoration: underline;">67</span>    268      229</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> smoker_preds_prob… equal…      5     2 0.005<span style="text-decoration: underline;">21</span> 0.005<span style="text-decoration: underline;">58</span> 0.006<span style="text-decoration: underline;">02</span>    269      229</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> smoker_preds_prob… equal…      5     1 0.004<span style="text-decoration: underline;">60</span> 0.004<span style="text-decoration: underline;">94</span> 0.005<span style="text-decoration: underline;">21</span>    266      179</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: relative_value &lt;dbl&gt;, .sum &lt;dbl&gt;, .med &lt;dbl&gt;, .sd &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   width &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>Evaluate the training error. <code>eval_preds</code> uses both the
 probability estimates and binary estimates to calculate a variety of
 metrics.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">eval_preds</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
-<span><span class="co">#&gt;   .metric   .estimator .estimate model target</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy  binary         0.998 Table smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas    binary         0.995 Table smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> precision binary         0.989 Table smoker</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> roc_auc   binary         1.00  Table smoker</span></span></code></pre></div>
+<span><span class="co">#&gt;   .metric   .estimator .estimate model              target</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> accuracy  binary         0.987 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> f_meas    binary         0.968 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> precision binary         0.941 smoker_xgb_classif smoker</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> roc_auc   binary         0.999 smoker_xgb_classif smoker</span></span></code></pre></div>
 <p>Traditional <code>yardstick</code> confusion matrix can be created
 manually.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">class_preds</span></span>
 <span></span>
-<span><span class="va">insurance_fit1</span> <span class="op">%&gt;%</span> </span>
+<span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">yardstick</span><span class="fu">::</span><span class="fu"><a href="https://yardstick.tidymodels.org/reference/conf_mat.html" class="external-link">conf_mat</a></span><span class="op">(</span>truth <span class="op">=</span> <span class="va">smoker</span>, estimate <span class="op">=</span> <span class="va">class_preds</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">conf_mat_sm</span></span>
 <span></span>
 <span><span class="va">conf_mat_sm</span></span>
 <span><span class="co">#&gt;           Truth</span></span>
 <span><span class="co">#&gt; Prediction  yes   no</span></span>
-<span><span class="co">#&gt;        yes  274    3</span></span>
-<span><span class="co">#&gt;        no     0 1061</span></span></code></pre></div>
+<span><span class="co">#&gt;        yes  273   17</span></span>
+<span><span class="co">#&gt;        no     1 1047</span></span></code></pre></div>
 </div>
   </div>
 
@@ -556,7 +475,7 @@ manually.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>
