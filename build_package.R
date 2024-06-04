@@ -6,7 +6,7 @@ xfun::gsub_dir(pattern = "valiData", replacement = "validata")
 library(pacman)
 p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
        ymlthis, magrittr, fs, covr, gitcreds, credentials,
-       badger, hexSticker, gh)
+       badger, hexSticker, gh, framecleaner, presenter, autostats, validata, tidybins)
 p_load(TidyConsultant)
 
 # add this file to .Rbuildignore ------------------------------------------
@@ -129,6 +129,9 @@ import_tibble("insurance.csv") -> insurance
 usethis::use_data(insurance)
 usethis::use_vignette("TidyConsultant")
 usethis::use_r("data.csv")
+
+usethis::use_version(which = "patch")
+devtools::submit_cran()
 # build and check ---------------------------------------------------------
 devtools::document()
 devtools::build_readme()
@@ -141,3 +144,5 @@ devtools::load_all()
 usethis::use_article(name = "Inference with xgboost")
 
 pacman::p_unload("all")
+
+install.packages("EIX", "DiagrammeR")
