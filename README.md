@@ -5,15 +5,15 @@
 
 ## Packages in the TidyConsultant universe
 
--   [validata](https://harrison4192.github.io/validata/)
+- [validata](https://harrison4192.github.io/validata/)
 
--   [framecleaner](https://harrison4192.github.io/framecleaner/)
+- [framecleaner](https://harrison4192.github.io/framecleaner/)
 
--   [tidybins](https://harrison4192.github.io/tidybins/)
+- [tidybins](https://harrison4192.github.io/tidybins/)
 
--   [presenter](https://harrison4192.github.io/presenter/)
+- [presenter](https://harrison4192.github.io/presenter/)
 
--   [autostats](https://harrison4192.github.io/autostats/)
+- [autostats](https://harrison4192.github.io/autostats/)
 
 Loading `TidyConsultant` installs and attaches all of these packages at
 once.
@@ -43,8 +43,12 @@ provide useful functions for data scientists of any industry.
 
 ------------------------------------------------------------------------
 
-![Marie Kondo, reknowned
-tidier](https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif)
+<figure>
+<img src="https://media.giphy.com/media/J2ZMQ2SENLxSSzr3uD/giphy.gif"
+alt="Marie Kondo, reknowned tidier" />
+<figcaption aria-hidden="true">Marie Kondo, reknowned
+tidier</figcaption>
+</figure>
 
 # Packages Overview
 
@@ -83,10 +87,3 @@ p_load(tidyverse, TidyConsultant)
 
 This is a great template to start your R script. Put any additional
 packages you may need inside the `p_load` command.
-
-# Other good R packages for consulting
-
-[outlier detection with random
-forests](https://cran.r-project.org/web/packages/outliertree/vignettes/Introducing_OutlierTree.html)
-[robust version of
-OutlierTree](https://github.com/RafaJPSantos/bagged.outliertrees)
