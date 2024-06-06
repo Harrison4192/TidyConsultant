@@ -282,15 +282,18 @@ sex-dependent.</p>
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x11beabe88&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x12ba538a8&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">auto_model_accuracy</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span>, include_linear <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="create-bins-with-tidybins">create bins with tidybins<a class="anchor" aria-label="anchor" href="#create-bins-with-tidybins"></a>
 </h3>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_cols</span><span class="op">(</span><span class="va">charges</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_bins</span></span>
 <span></span>
@@ -314,7 +317,7 @@ sex-dependent.</p>
 <p>Here we can see a summary of the binned cols. The with quintile
 “value” bins we can see that the top 20% of charges comes from the top x
 people.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_bins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">bin_summary</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 14</span></span></span>
@@ -341,7 +344,7 @@ people.</p>
 <p>Xgboost considers the first level of a factor to be the “positive
 event” so let’s ensure that “yes” is the first level using
 <code><a href="https://harrison4192.github.io/framecleaner/reference/set_fct.data.frame.html" class="external-link">framecleaner::set_fct</a></code></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">set_fct</span><span class="op">(</span><span class="va">smoker</span>, first_level <span class="op">=</span> <span class="st">"yes"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance</span></span>
 <span></span>
@@ -363,21 +366,21 @@ event” so let’s ensure that “yes” is the first level using
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> region_southeast integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">9</span> region_southwest integ…             0               0            2     0.001<span style="text-decoration: underline;">49</span></span></span></code></pre></div>
 <p>And create a new formula for the binary classification.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_formula</span><span class="op">(</span>target <span class="op">=</span> <span class="va">smoker</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">smoker_form</span></span>
 <span></span>
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x11ac0b520&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x12f35b6d8&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>.
 Built in heuristic will automatically recognize this as a binary
 classification task. We can tweak some parameters to add some
 regularization and increase the number of trees. Xgboost will
 automatically output feature importance on the training set, and a
 measure of accuracy tested on a validation set.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_dummies</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_xgboost</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">smoker_form</span>, </span>
 <span>              mtry <span class="op">=</span> <span class="fl">.5</span>,</span>
@@ -406,12 +409,12 @@ measure of accuracy tested on a validation set.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> roc_auc                  0.984 <span style="color: #BB0000;">NA</span></span></span></code></pre>
 <p><img src="TidyConsultant_files/figure-html/unnamed-chunk-19-2.png" width="700"></p>
 <p>Obtain predictions</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">smoker_xgb_classif</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidy_predict</span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">insurance_dummies</span>, form <span class="op">=</span> <span class="va">smoker_form</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">insurance_fit</span></span></code></pre></div>
 <p>Analyze the probabilities using tidybins. We can find the top 20% of
 customers most likely to be smokers.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">prob_preds</span></span>
 <span></span>
 <span><span class="va">insurance_fit</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -432,7 +435,7 @@ customers most likely to be smokers.</p>
 <p>Evaluate the training error. <code>eval_preds</code> uses both the
 probability estimates and binary estimates to calculate a variety of
 metrics.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">eval_preds</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 5</span></span></span>
@@ -444,7 +447,7 @@ metrics.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> roc_auc   binary         0.999 smoker_xgb_classif smoker</span></span></code></pre></div>
 <p>Traditional <code>yardstick</code> confusion matrix can be created
 manually.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">insurance_fit</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="op">-&gt;</span> <span class="va">class_preds</span></span>
 <span></span>
 <span><span class="va">insurance_fit1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
