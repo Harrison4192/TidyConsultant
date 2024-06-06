@@ -282,7 +282,7 @@ sex-dependent.</p>
 <span><span class="va">charges_form</span></span>
 <span><span class="co">#&gt; charges ~ age + bmi + children + sex_female + smoker_yes + region_northeast + </span></span>
 <span><span class="co">#&gt;     region_northwest + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x1151d4408&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x11beabe88&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">insurance1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">auto_variable_contributions</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">charges_form</span><span class="op">)</span></span></code></pre></div>
@@ -370,7 +370,7 @@ event” so let’s ensure that “yes” is the first level using
 <span><span class="va">smoker_form</span></span>
 <span><span class="co">#&gt; smoker ~ age + bmi + children + charges + sex_male + region_northwest + </span></span>
 <span><span class="co">#&gt;     region_southeast + region_southwest</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x1173cbc38&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;environment: 0x11ac0b520&gt;</span></span></code></pre></div>
 <p>Now we can create a basic model using <code>tidy_xgboost</code>.
 Built in heuristic will automatically recognize this as a binary
 classification task. We can tweak some parameters to add some
