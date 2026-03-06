@@ -37,7 +37,7 @@ status](https://www.r-pkg.org/badges/version/TidyConsultant)](https://CRAN.R-pro
 The TidyConsultant packages are designed in mind for consultants who
 frequently work with heterogenous small-medium sized tabular data sets
 and interact with the messy world of MS office. This package builds on
-prior art from the [tidyverse](https://www.tidyverse.org/) and
+prior art from the [tidyverse](https://tidyverse.org/) and
 [officeverse](https://ardata-fr.github.io/officeverse/) and intends to
 provide useful functions for data scientists of any industry.
 
